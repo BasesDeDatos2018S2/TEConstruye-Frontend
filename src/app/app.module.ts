@@ -6,12 +6,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { FormsModule } from '@angular/forms';
 import { ViewMaterialsComponent } from './components/view-materials/view-materials.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     EditClientComponent,
-    ViewMaterialsComponent
+    ViewMaterialsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
