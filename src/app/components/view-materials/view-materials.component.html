@@ -1,5 +1,5 @@
 
-<div [hidden]="add_material">
+<div *ngIf="!add_material && !edit_material">
 
 
 <table class="table table-hover table-bordered results">
@@ -17,6 +17,8 @@
       <th scope="row">{{material.name}}</th>
       <td>{{material.detail}}</td>
       <td>{{material.price}}</td>
+      <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Editar</button></td>
+      <td><button type="submit" class="btn " (click)="delete_material(material.id)" >Eliminar</button></td>
     </tr>
   </tbody>
 </table>
@@ -25,9 +27,9 @@
 </div>
 
 
-<div class="container" [hidden]="!add_material">
+<div class="container" *ngIf="add_material">
 <h1>Agregar material</h1>
-  <form (ngSubmit)="onSubmit()" #materialForm="ngForm">
+  <form (ngSubmit)="onSubmitAdd()" #addMaterialForm="ngForm">
 
     <div class="form-group">
       <label for="name">Nombre</label>
@@ -54,12 +56,40 @@
       <input type="number" class="form-control" id="price"
              [(ngModel)]="material_to_add.price" name="price">
     </div>
-
-    <button type="submit" class="btn btn-success" [disabled]="!materialForm.form.valid">Submit</button>
-
+    <button type="submit" class="btn btn-success" [disabled]="!addMaterialForm.form.valid">Submit</button>
   </form>
+</div>
 
 
+<div class="container" *ngIf="edit_material">
+<h1>Editar material</h1>
+  <form (ngSubmit)="onSubmitEdit()" #editMaterialForm="ngForm">
 
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="material_to_edit.name" name="name"
+             #name="ngModel" placeholder="varilla, cemento,etc">
 
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        el nombre es requerido
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="detail">Detalle</label>
+      <input type="text" class="form-control" id="detail"
+             [(ngModel)]="material_to_edit.detail" name="detail"
+             placeholder="datos del material">
+    </div>
+
+    <div class="form-group">
+      <label for="detail">Precio</label>
+      <input type="number" class="form-control" id="price"
+             [(ngModel)]="material_to_edit.price" name="price">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!editMaterialForm.form.valid">Submit</button>
+  </form>
 </div>
