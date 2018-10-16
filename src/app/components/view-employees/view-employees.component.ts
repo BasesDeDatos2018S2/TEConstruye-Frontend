@@ -18,7 +18,7 @@ export class ViewEmployeesComponent implements OnInit {
     this.edit_employee = false;
     this.employee_to_add = new Employee(1, "", "", "","","");
     this.employee_to_edit = new Employee(1, "", "", "","","");
-    this.header_list = ["Cedula", "Nombre", "Primer Apellido", "Segundo Apellido","Teléfono" "",""];
+    this.header_list = ["Cedula", "Nombre", "Primer Apellido", "Segundo Apellido","Teléfono","",""];
     this.employee_list.push(new Employee(0,"609630745", "Pedro", 'Miranda', 'Picado', 87365433));
     this.employee_list.push(new Employee(1, "107435454", "Juan", 'Rivas','Chinchilla', 86476595));
     this.employee_list.push(new Employee(2, "1179300456", "Ramón", 'Rivera',"Hidalgo", 86259354));
