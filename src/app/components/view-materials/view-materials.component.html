@@ -1,0 +1,65 @@
+
+<div [hidden]="add_material">
+
+
+<table class="table table-hover table-bordered results">
+  <thead class="thead-dark">
+    <tr>
+      <th *ngFor=" let header of header_list" scope="col">{{header}} </th>
+    </tr>
+    <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let material of material_list">
+      <!-- <th scope="row">{{material.id}}</th> -->
+      <th scope="row">{{material.name}}</th>
+      <td>{{material.detail}}</td>
+      <td>{{material.price}}</td>
+    </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar material</button>
+
+</div>
+
+
+<div class="container" [hidden]="!add_material">
+<h1>Agregar material</h1>
+  <form (ngSubmit)="onSubmit()" #materialForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="material_to_add.name" name="name"
+             #name="ngModel" placeholder="varilla, cemento,etc">
+
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        el nombre es requerido
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="detail">Detalle</label>
+      <input type="text" class="form-control" id="detail"
+             [(ngModel)]="material_to_add.detail" name="detail"
+             placeholder="datos del material">
+    </div>
+
+    <div class="form-group">
+      <label for="detail">Precio</label>
+      <input type="number" class="form-control" id="price"
+             [(ngModel)]="material_to_add.price" name="price">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!materialForm.form.valid">Submit</button>
+
+  </form>
+
+
+
+
+</div>
