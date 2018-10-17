@@ -19,12 +19,13 @@ import { LoginComponent } from './components/login/login.component';
     ViewMaterialsComponent,
     StagesComponent,
     EditStageComponent,
-    ViewStageComponent
+    ViewStageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    LoginComponent
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
