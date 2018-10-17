@@ -10,6 +10,7 @@ import { StagesComponent } from './components/stages/stages.component';
 import { EditStageComponent } from './components/edit-stage/edit-stage.component';
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { LoginComponent } from './components/login/login.component';
+import { ViewEmployeesComponent } from './components/view-employees/view-employees.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './components/login/login.component';
     StagesComponent,
     EditStageComponent,
     ViewStageComponent,
-    LoginComponent
+    LoginComponent,
+    ViewEmployeesComponent
   ],
   imports: [
     BrowserModule,
