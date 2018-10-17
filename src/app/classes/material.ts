@@ -4,6 +4,7 @@ export class Material {
     public name: string,
     public detail: string,
     public price: number,
-  ) {  }
+    // public quantity: number
+  ) { }
 }
 // TODO: cambiar tipo dato del precio
