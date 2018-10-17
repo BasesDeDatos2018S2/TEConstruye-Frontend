@@ -1,0 +1,33 @@
+<h1>Etapas</h1>
+<!-- <div *ngIf="!add_material && !edit_material"> -->
+  <div>
+
+
+<table class="table table-hover table-bordered results">
+  <thead class="thead-dark">
+    <tr>
+      <th *ngFor=" let header of header_list" scope="col">{{header}} </th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <div class="">
+
+    </div>
+    <tr *ngFor="let stage of stages">
+      <!-- <th scope="row">{{material.id}}</th> -->
+      <th scope="row">{{stage.name}}</th>
+      <td>{{stage.description}}</td>
+      <td>{{stage.state}}</td>
+      <td>{{stage.estimated_cost}}</td>
+      <td>{{stage.current_cost}}</td>
+      <td>
+        <button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Ver</button>
+      <!-- <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Mostrar Facturas</button></td> -->
+      <button type="submit" class="btn btn-danger" (click)="show_edit_material(material.id)" >Editar</button>
+    </td>
+    </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar Etapa</button>
+</div>
