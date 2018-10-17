@@ -28,11 +28,11 @@
 
 
 <div class="container" *ngIf="add_material">
-<h1>Agregar material</h1>
+<h1>Inicio de session</h1>
   <form (ngSubmit)="onSubmitAdd()" #addMaterialForm="ngForm">
 
     <div class="form-group">
-      <label for="name">Nombre</label>
+      <label for="name">Correo electronico</label>
       <input type="text" class="form-control" id="name"
              required
              [(ngModel)]="material_to_add.name" name="name"
@@ -45,18 +45,13 @@
     </div>
 
     <div class="form-group">
-      <label for="detail">Detalle</label>
+      <label for="detail">Contrasena</label>
       <input type="text" class="form-control" id="detail"
              [(ngModel)]="material_to_add.detail" name="detail"
              placeholder="datos del material">
     </div>
 
-    <div class="form-group">
-      <label for="detail">Precio</label>
-      <input type="number" class="form-control" id="price"
-             [(ngModel)]="material_to_add.price" name="price">
-    </div>
-    <button type="submit" class="btn btn-success" [disabled]="!addMaterialForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!addMaterialForm.form.valid">Iniciar sesion</button>
   </form>
 </div>
 

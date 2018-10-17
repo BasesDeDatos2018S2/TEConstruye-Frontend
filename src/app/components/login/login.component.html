@@ -1,0 +1,33 @@
+
+<div class="container">
+<h1>Inicio de sesion</h1>
+  <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+
+    <div class="form-group">
+      <label for="email">Correo electronico</label>
+      <input type="email" class="form-control" id="email"
+             required
+             [(ngModel)]="user.email" name="email"
+             #name="ngModel" placeholder="admin@teconstruye.com">
+
+      <!-- <div [hidden]="email.valid || email.pristine"
+           class="alert alert-danger">
+        el correo electronico es requerido
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <label for="password">Detalle</label>
+      <input type="password" class="form-control" id="password"
+             [(ngModel)]="user.password" name="password"
+             placeholder="**********">
+             <!-- <div [hidden]="password.valid || password.pristine"
+                  class="alert alert-danger">
+               la contrasena es requerida
+             </div> -->
+    </div>
+
+
+    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
+  </form>
+</div>

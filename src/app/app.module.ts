@@ -9,6 +9,8 @@ import { ViewMaterialsComponent } from './components/view-materials/view-materia
 import { StagesComponent } from './components/stages/stages.component';
 import { EditStageComponent } from './components/edit-stage/edit-stage.component';
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
+import { LoginComponent } from './components/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { ViewStageComponent } from './components/view-stage/view-stage.component
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
