@@ -1,0 +1,65 @@
+<h1>{{stage.name}}</h1>
+<h3>Descripcion:</h3>
+<h5 class="container">{{stage.description}}</h5>
+<!-- <div *ngIf="!add_material && !edit_material"> -->
+
+
+<div>
+<h3>Materiales:</h3>
+<table class="table table-hover table-bordered results">
+  <thead class="thead-dark">
+    <tr>
+      <th *ngFor=" let header of materials_headers" scope="col">{{header}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="">
+
+    </div>
+    <tr *ngFor="let material of stage.materials">
+      <!-- <th scope="row">{{material.id}}</th> -->
+      <th scope="row">{{material.name}}</th>
+      <td>{{material.quantity}}</td>
+      <td>{{material.price}}</td>
+      <td>{{material.quantity*material.price}}</td>
+      <!-- <td> -->
+        <!-- <button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Ver</button> -->
+      <!-- <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Mostrar Facturas</button></td> -->
+      <!-- <button type="submit" class="btn btn-danger" (click)="show_edit_material(material.id)" >Editar</button> -->
+    <!-- </td> -->
+    </tr>
+  </tbody>
+</table>
+<!-- <button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar Etapa</button> -->
+</div>
+
+
+
+<div>
+<h3>Facturas:</h3>
+<table class="table table-hover table-bordered results">
+  <thead class="thead-dark">
+    <tr>
+      <th *ngFor=" let header of invoices_headers" scope="col">{{header}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="">
+
+    </div>
+    <tr *ngFor="let invoice of stage.invoices">
+      <!-- <th scope="row">{{material.id}}</th> -->
+      <th scope="row">{{invoice.serial}}</th>
+      <td>{{invoice.date | date:'MM/dd/yyyy'}}</td>
+      <td>{{invoice.price}}</td>
+      <td>{{invoice.provider}}</td>
+      <!-- <td> -->
+        <!-- <button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Ver</button> -->
+      <!-- <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Mostrar Facturas</button></td> -->
+      <!-- <button type="submit" class="btn btn-danger" (click)="show_edit_material(material.id)" >Editar</button> -->
+    <!-- </td> -->
+    </tr>
+  </tbody>
+</table>
+<!-- <button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar Etapa</button> -->
+</div>

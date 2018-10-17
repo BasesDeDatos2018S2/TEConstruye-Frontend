@@ -4,5 +4,6 @@ export class Invoice {
     public date: Date,
     public serial: string,
     public price: number,
+    public provider: string
   ) { }
 }

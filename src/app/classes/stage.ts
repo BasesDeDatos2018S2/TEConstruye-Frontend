@@ -9,7 +9,7 @@ export class Stage {
     public state: boolean,
     public start_date: Date,
     public due_date: Date,
-    public materials: {material:Material,quantity:number}[],
+    public materials:Material[],
     public invoices:Invoice[]
   ) { }
 }

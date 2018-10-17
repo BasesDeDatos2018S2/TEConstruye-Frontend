@@ -1,0 +1,32 @@
+<div class="container" >
+<h1>Editar etapa</h1>
+  <form (ngSubmit)="onSubmitEdit()" #editMaterialForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="material_to_edit.name" name="name"
+             #name="ngModel" placeholder="varilla, cemento,etc">
+
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        el nombre es requerido
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="detail">Detalle</label>
+      <input type="text" class="form-control" id="detail"
+             [(ngModel)]="material_to_edit.detail" name="detail"
+             placeholder="datos del material">
+    </div>
+
+    <div class="form-group">
+      <label for="detail">Precio</label>
+      <input type="number" class="form-control" id="price"
+             [(ngModel)]="material_to_edit.price" name="price">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!editMaterialForm.form.valid">Submit</button>
+  </form>
+</div>
