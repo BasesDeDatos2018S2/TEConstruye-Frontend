@@ -1,4 +1,15 @@
-<h1>{{stage.name}}</h1>
+<div class="">
+  <h1>{{stage.name}}</h1>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Editar
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Actualizar informacion</a>
+      <a class="dropdown-item" href="#">Eliminar</a>
+    </div>
+  </div></div>
+
 <h3>Descripcion:</h3>
 <h5 class="container">{{stage.description}}</h5>
 <!-- <div *ngIf="!add_material && !edit_material"> -->
@@ -30,7 +41,7 @@
     </tr>
   </tbody>
 </table>
-<!-- <button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar Etapa</button> -->
+<button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar material</button>
 </div>
 
 
@@ -53,13 +64,8 @@
       <td>{{invoice.date | date:'MM/dd/yyyy'}}</td>
       <td>{{invoice.price}}</td>
       <td>{{invoice.provider}}</td>
-      <!-- <td> -->
-        <!-- <button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Ver</button> -->
-      <!-- <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Mostrar Facturas</button></td> -->
-      <!-- <button type="submit" class="btn btn-danger" (click)="show_edit_material(material.id)" >Editar</button> -->
-    <!-- </td> -->
     </tr>
   </tbody>
 </table>
-<!-- <button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar Etapa</button> -->
+<button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar factura</button>
 </div>

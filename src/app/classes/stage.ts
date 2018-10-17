@@ -10,6 +10,8 @@ export class Stage {
     public start_date: Date,
     public due_date: Date,
     public materials:Material[],
-    public invoices:Invoice[]
+    public invoices:Invoice[],
+    public estimated_cost:number,
+    public current_cost:number
   ) { }
 }
