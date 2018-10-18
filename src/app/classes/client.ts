@@ -5,7 +5,8 @@ export class Client {
     public fname: string,
     public lname1: string,
     public lname2: string,
-    public email: string
+    public email: string,
+    public phone: string
   ) {  }
 
 }
