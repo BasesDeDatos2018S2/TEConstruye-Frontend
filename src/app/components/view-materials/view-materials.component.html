@@ -36,7 +36,7 @@
       <input type="text" class="form-control" id="name"
              required
              [(ngModel)]="material_to_add.name" name="name"
-             #name="ngModel" placeholder="varilla, cemento,etc">
+             placeholder="varilla, cemento,etc">
 
       <div [hidden]="name.valid || name.pristine"
            class="alert alert-danger">
@@ -65,7 +65,7 @@
       <input type="text" class="form-control" id="name"
              required
              [(ngModel)]="material_to_edit.name" name="name"
-             #name="ngModel" placeholder="varilla, cemento,etc">
+              placeholder="varilla, cemento,etc">
 
       <div [hidden]="name.valid || name.pristine"
            class="alert alert-danger">
