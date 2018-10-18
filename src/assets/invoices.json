@@ -1,0 +1,41 @@
+[{
+    "id": 0,
+    "serial": "sXX1",
+    "price": 1,
+    "provider": "EPA",
+    "price": 660,
+    "date": "Wed Jun 16 2018 19:33:30 GMT-0600 (CST)"
+  },
+  {
+    "id": 1,
+    "serial": "sXX2",
+    "price": 1,
+    "provider": "El Lagar",
+    "price": 800,
+    "date": "Wed Oct 2 2018 19:33:30 GMT-0600 (CST)"
+  },
+  {
+    "id": 2,
+    "serial": "sXX3",
+    "price": 1,
+    "provider": "EPA",
+    "price": 99660,
+    "date": "Wed Oct 8 2018 19:33:30 GMT-0600 (CST)"
+  },
+  {
+    "id": 3,
+    "serial": "sXX4",
+    "price": 1,
+    "provider": "El Guadalupano",
+    "price": 88554,
+    "date": "Wed Dic 16 2018 19:33:30 GMT-0600 (CST)"
+  },
+  {
+    "id": 4,
+    "serial": "sXX5",
+    "price": 1,
+    "provider": "EPA",
+    "price": 151111,
+    "date": "Wed Oct 16 2018 19:33:30 GMT-0600 (CST)"
+  }
+]
