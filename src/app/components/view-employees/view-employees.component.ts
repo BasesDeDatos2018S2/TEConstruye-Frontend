@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../classes/employee';
+import { EmployeesService } from '../../services/employees.service';
 
 @Component({
   selector: 'app-view-employees',
@@ -13,16 +14,22 @@ export class ViewEmployeesComponent implements OnInit {
   employee_to_add: Employee;
   employee_to_edit: Employee;
   header_list: string[] = [];
-  constructor() {
+  constructor(private employeesService: EmployeesService) {
     this.add_employee = false;
     this.edit_employee = false;
     this.employee_to_add = new Employee(1, "", "", "","",0);
     this.employee_to_edit = new Employee(1, "", "", "","",0);
     this.header_list = ["Cedula", "Nombre", "Primer Apellido", "Segundo Apellido","Teléfono","",""];
-    this.employee_list.push(new Employee(0,"609630745", "Pedro", 'Miranda', 'Picado', 87365433));
-    this.employee_list.push(new Employee(1, "107435454", "Juan", 'Rivas','Chinchilla', 86476595));
-    this.employee_list.push(new Employee(2, "1179300456", "Ramón", 'Rivera',"Hidalgo", 86259354));
-    this.employee_list.push(new Employee(3, "2057307551", "Mariluz", 'Segura',"Consumi", 89053007));
+    // this.employee_list.push(new Employee(0,"609630745", "Pedro", 'Miranda', 'Picado', 87365433));
+    // this.employee_list.push(new Employee(1, "107435454", "Juan", 'Rivas','Chinchilla', 86476595));
+    // this.employee_list.push(new Employee(2, "1179300456", "Ramón", 'Rivera',"Hidalgo", 86259354));
+    // this.employee_list.push(new Employee(3, "2057307551", "Mariluz", 'Segura',"Consumi", 89053007));
+    this.employeesService.getEmployees().subscribe(data => {
+      console.log("data:", data);
+      this.employee_list = data;
+    });
+
+
     console.log(this.employee_list);
   }
 

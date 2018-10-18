@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ViewEmployeesComponent } from './components/view-employees/view-employees.component';
 
 import { MaterialsService } from './services/materials.service';
+import { EmployeesService } from './services/employees.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MaterialsService } from './services/materials.service';
 
   ],
   providers: [
-    MaterialsService
+    MaterialsService,
+    EmployeesService
   ],
   bootstrap: [AppComponent]
 })
