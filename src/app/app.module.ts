@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -11,6 +12,8 @@ import { EditStageComponent } from './components/edit-stage/edit-stage.component
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewEmployeesComponent } from './components/view-employees/view-employees.component';
+
+import { MaterialsService } from './services/materials.service';
 
 @NgModule({
   declarations: [
@@ -26,10 +29,13 @@ import { ViewEmployeesComponent } from './components/view-employees/view-employe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [
+    MaterialsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import {HttpClient} from '@angular/common/http';
 import { Material } from '../../classes/material';
-
+import { MaterialsService } from '../../services/materials.service';
 
 @Component({
   selector: 'app-view-materials',
@@ -15,17 +16,23 @@ export class ViewMaterialsComponent implements OnInit {
   material_to_add: Material;
   material_to_edit: Material;
   header_list: string[] = [];
-  constructor() {
+  constructor(private materialsService: MaterialsService) {
+
+
+
+
+
     this.add_material = false;
     this.edit_material = false;
     this.material_to_add = new Material(1, "", "", 0);
     this.material_to_edit = new Material(1, "", "", 0);
     this.header_list = ["Nombre", "Descripcion", "Precio", "", ""];
-    this.material_list.push(new Material(0, "varilla", 'Consequatur est quas id vero aut perspiciatis quod dolor. Libero non ut modi aut reiciendis dolorem expedita. Tenetur sed consequuntur quis debitis eos rerum vel. Dolorem consequatur ut qui laboriosam voluptatibus assumenda reprehenderit dolore. Est quae voluptatem deleniti quod voluptas. Sunt harum ullam dolore minus est dicta deserunt.', 1000));
-    this.material_list.push(new Material(1, "perlin", 'perlin de hierro de 3m', 1000));
-    this.material_list.push(new Material(2, "block", 'brock de 30*10cm', 1000));
-    this.material_list.push(new Material(3, "cemento", 'saco de 50kg4', 1000));
-    console.log(this.material_list);
+    this.materialsService.getMaterials().subscribe(data => {
+      console.log("data:", data);
+      this.material_list = data;
+    });
+
+    // console.log(this.material_list);
   }
 
   ngOnInit() {
