@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import {DpDatePickerModule} from 'ng2-date-picker';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,9 +16,10 @@ import { ViewEmployeesComponent } from './components/view-employees/view-employe
 
 import { MaterialsService } from './services/materials.service';
 import { EmployeesService } from './services/employees.service';
+import { ProjectsService } from './services/projects.service';
 import { StagesService } from './services/stages.service';
 import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
-
+import { ViewPayrollComponent } from './components/view-payroll/view-payroll.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,18 +31,21 @@ import { ViewProjectsComponent } from './components/view-projects/view-projects.
     ViewStageComponent,
     LoginComponent,
     ViewEmployeesComponent,
-    ViewProjectsComponent
+    ViewProjectsComponent,
+    ViewPayrollComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DpDatePickerModule
 
   ],
   providers: [
     MaterialsService,
     EmployeesService,
-    StagesService
+    StagesService,
+    ProjectsService
   ],
   bootstrap: [AppComponent]
 })
