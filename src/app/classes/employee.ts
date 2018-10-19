@@ -5,6 +5,9 @@ export class Employee {
     public fname: string,
     public lname1: string,
     public lname2: string,
-    public phone: number
+    public id_rol: number,
+    public carrer: string,
+    public phone: number,
+    public payperhour: number
   ) {  }
 }
