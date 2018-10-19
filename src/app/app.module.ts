@@ -13,13 +13,17 @@ import { EditStageComponent } from './components/edit-stage/edit-stage.component
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewEmployeesComponent } from './components/view-employees/view-employees.component';
+import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
+import { ViewPayrollComponent } from './components/view-payroll/view-payroll.component';
+
 
 import { MaterialsService } from './services/materials.service';
 import { EmployeesService } from './services/employees.service';
 import { ProjectsService } from './services/projects.service';
 import { StagesService } from './services/stages.service';
-import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
-import { ViewPayrollComponent } from './components/view-payroll/view-payroll.component';
+import { PayrollsService } from './services/payrolls.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +49,8 @@ import { ViewPayrollComponent } from './components/view-payroll/view-payroll.com
     MaterialsService,
     EmployeesService,
     StagesService,
-    ProjectsService
+    ProjectsService,
+    PayrollsService
   ],
   bootstrap: [AppComponent]
 })

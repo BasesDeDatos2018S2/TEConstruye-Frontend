@@ -1,8 +1,9 @@
 export class Payroll {
   constructor(
-   public proyect: string,
-   public hours: number,
-   public employee: string,
-   public date: Date,
- ) {  }
+    public id: number,
+    public project: number,
+    public hours: number,
+    public employee: number,
+    public date: Date,
+  ) { }
 }
