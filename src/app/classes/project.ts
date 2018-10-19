@@ -5,5 +5,6 @@ export class Project {
    public name: string,
    public location: string,
    public id_client: string,
+   public id_manager: string,
  ) {  }
 }

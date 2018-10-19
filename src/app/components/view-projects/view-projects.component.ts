@@ -16,13 +16,13 @@ export class ViewProjectsComponent implements OnInit {
   constructor() {
     this.add_project = false;
     this.edit_project = false;
-    this.project_to_add = new Project(1, "","","");
-    this.project_to_edit = new Project(1, "","","");
-    this.header_list = [ "Nombre","Ubicación", "Cliente", "",""];
-    this.project_list.push(new Project(0, "Casa","Cartago", "Gustavo"));
-    this.project_list.push(new Project(1, "Jardin","San José","Juan"));
-    this.project_list.push(new Project(2, "Edificio","Heredia","Ramón"));
-    this.project_list.push(new Project(3, "Foro","México","Mariluz"));
+    this.project_to_add = new Project(1, "","","","");
+    this.project_to_edit = new Project(1, "","","","");
+    this.header_list = [ "Nombre","Encargado","Ubicación", "Cliente", "",""];
+    this.project_list.push(new Project(0, "Casa","Ingeniero Mauricio","Cartago", "Gustavo"));
+    this.project_list.push(new Project(1, "Jardin","Arquitecto Gustavo","San José","Juan"));
+    this.project_list.push(new Project(2, "Edificio","Ingeniero Andrés","Heredia","Ramón"));
+    this.project_list.push(new Project(3, "Foro","Arquitecto Crisptofer","México","Mariluz"));
     console.log(this.project_list);
   }
 
