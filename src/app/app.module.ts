@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-
+import {BaseRequestOptions, HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
@@ -38,7 +38,8 @@ import { ViewReportsComponent } from './components/view-reports/view-reports.com
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
 
   ],
   providers: [

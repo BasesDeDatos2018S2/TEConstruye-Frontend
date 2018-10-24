@@ -7,7 +7,7 @@ import { Client } from '../../classes/client';
   styleUrls: ['./edit-client.component.css']
 })
 export class EditClientComponent implements OnInit {
-  model = new Client(1, '11112215-555', 'Gustavo', 'Segura', 'Umana', 'test@test.com',"8888-5555");
+  model = new Client('11112215-555', 'Gustavo', 'Segura', 'Umana', 'test@test.com',"8888-5555");
   submitted = false;
 
   constructor() { }
