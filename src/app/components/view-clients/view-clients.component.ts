@@ -34,16 +34,31 @@ export class ViewClientsComponent implements OnInit {
   ngOnInit() {
   }
   onSubmitAdd() {
-    this.client_list.push(this.client_to_add);
-    this.add_client = false;
+    // this.client_list.push(this.client_to_add);
+
+    this.clientService.createClient(this.client_to_add).subscribe(
+          data => {
+              console.log("POST Request is successful ", data);
+              this.updateClientList();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
+      this.add_client = false;
+
   }
 
   onSubmitEdit() {
-    for (let client of this.client_list) {
-      if (client.identification === this.client_to_edit.identification) {
-        client = this.client_to_edit;
-      }
-    }
+    this.clientService.updateClient(this.client_to_edit).subscribe(
+          data => {
+              console.log("PUT Request is successful ", data);
+              this.updateClientList();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
     this.edit_client = false;
 
   }
@@ -65,7 +80,7 @@ export class ViewClientsComponent implements OnInit {
     console.log("delete", identification);
     this.clientService.deleteClient(identification).subscribe(
           data => {
-              console.log("PATCH Request is successful ", data);
+              console.log("DELETE Request is successful ", data);
               this.updateClientList();
           },
           error => {

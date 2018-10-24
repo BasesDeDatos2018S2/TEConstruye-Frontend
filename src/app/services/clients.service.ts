@@ -21,7 +21,19 @@ export class ClientsService {
     }
     updateClient(client:Client){
       // return this.httpClient.get<Material[]>("../../assets/materials.json");
+      let url:string = "http://172.18.95.165:8088/api/client/update/";
+      console.log(url);
+      // return this.httpClient.delete("http://172.18.95.165:8088/api/client/delete/"+id);
+      return this.httpClient.put(url, client);
     }
+
+    createClient(client:Client){
+      let url:string = "http://172.18.95.165:8088/api/client/add/";
+      console.log(url);
+      // return this.httpClient.delete("http://172.18.95.165:8088/api/client/delete/"+id);
+      return this.httpClient.post(url, client);
+    }
+
     deleteClient(id:string){
       let url:string = "http://172.18.95.165:8088/api/client/delete/"+id;
       console.log(url);
