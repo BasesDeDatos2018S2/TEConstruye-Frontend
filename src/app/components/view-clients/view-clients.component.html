@@ -2,21 +2,21 @@
 <div *ngIf="!add_client && !edit_client">
 
 
-<table class="table table-hover table-bordered results">
+<table class="table table-hover table-bordered">
   <thead class="thead-dark">
     <tr>
       <th *ngFor=" let header of header_list" scope="col">{{header}} </th>
     </tr>
-    <tr class="warning no-result">
+    <!-- <tr class="warning no-result">
       <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-    </tr>
+    </tr> -->
   </thead>
   <tbody>
     <tr *ngFor="let client of client_list">
-      <td>{{client.ssn}}</td>
-      <td>{{client.fname}}</td>
-      <td>{{client.lname1}}</td>
-      <td>{{client.lname2}}</td>
+      <td>{{client.identification}}</td>
+      <td>{{client.name}}</td>
+      <td>{{client.lastname1}}</td>
+      <td>{{client.lastname2}}</td>
       <td>{{client.email}}</td>
       <td>{{client.phone}}</td>
       <td><button type="submit" class="btn btn-success" (click)="show_edit_client(client.id)" >Editar</button></td>
@@ -38,7 +38,7 @@
       <label for="Assn">Cédula</label>
       <input type="text" class="form-control" id="Assn"
              required
-             [(ngModel)]="client_to_add.ssn" name="Assn"
+             [(ngModel)]="client_to_add.identification" name="Assn"
              #ssn="ngModel" placeholder="601760756">
 
       <!-- <div [hidden]="Assn.valid || Assn.pristine"
@@ -52,7 +52,7 @@
       <label for="Afname">Nombre</label>
       <input type="text" class="form-control" id="Afname"
              required
-             [(ngModel)]="client_to_add.fname" name="Afname"
+             [(ngModel)]="client_to_add.name" name="Afname"
               placeholder="Kristy, Krissia, Verónica">
 
       <div [hidden]="Afname.valid || Afname.pristine"
@@ -64,14 +64,14 @@
     <div class="form-group">
       <label for=Alname1>Primer Apellido</label>
       <input type="text" class="form-control" id="Alanme1"
-             [(ngModel)]="client_to_add.lname1" name="Alname1"
+             [(ngModel)]="client_to_add.lastname1" name="Alname1"
              placeholder=" Solis,  Miranda,  Rodriguez">
     </div>
 
     <div class="form-group">
       <label for="Alname2">Segundo Apellido</label>
       <input type="text" class="form-control" id="Alname2"
-             [(ngModel)]="client_to_add.lname2" name="Alanme2"
+             [(ngModel)]="client_to_add.lastname2" name="Alanme2"
              placeholder="Rivera, Chachón, Garay">
     </div>
 
@@ -104,7 +104,7 @@
       <label for="ssn">Cédula</label>
       <input type="text" class="form-control" id="ssn"
              required
-             [(ngModel)]="client_to_edit.ssn" name="ssn"
+             [(ngModel)]="client_to_edit.identification" name="ssn"
              #ssn="ngModel" placeholder="601760756">
 
       <!-- <div [hidden]="ssn.valid || ssn.pristine"
@@ -118,7 +118,7 @@
       <label for="fname">Nombre</label>
       <input type="text" class="form-control" id="fname"
              required
-             [(ngModel)]="client_to_edit.fname" name="fname"
+             [(ngModel)]="client_to_edit.name" name="fname"
               placeholder="Kristy, Krissia, Verónica">
 
       <!-- <div [hidden]="fname.valid || fname.pristine"
@@ -130,14 +130,14 @@
     <div class="form-group">
       <label for=lname1>Primer Apellido</label>
       <input type="text" class="form-control" id="lanme1"
-             [(ngModel)]="client_to_edit.lname1" name="lname1"
+             [(ngModel)]="client_to_edit.lastname1" name="lname1"
              placeholder=" Solis,  Miranda,  Rodriguez">
     </div>
 
     <div class="form-group">
       <label for="lname2">Segundo Apellido</label>
       <input type="text" class="form-control" id="lname2"
-             [(ngModel)]="client_to_edit.lname2" name="lanme2"
+             [(ngModel)]="client_to_edit.lastname2" name="lanme2"
              placeholder="Rivera, Chachón, Garay">
     </div>
 
