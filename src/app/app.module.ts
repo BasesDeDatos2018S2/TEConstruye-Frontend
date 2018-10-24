@@ -18,6 +18,7 @@ import { EmployeesService } from './services/employees.service';
 import { StagesService } from './services/stages.service';
 import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
 import { ViewClientsComponent } from './components/view-clients/view-clients.component';
+import { ViewReportsComponent } from './components/view-reports/view-reports.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ViewClientsComponent } from './components/view-clients/view-clients.com
     LoginComponent,
     ViewEmployeesComponent,
     ViewProjectsComponent,
-    ViewClientsComponent
+    ViewClientsComponent,
+    ViewReportsComponent
   ],
   imports: [
     BrowserModule,

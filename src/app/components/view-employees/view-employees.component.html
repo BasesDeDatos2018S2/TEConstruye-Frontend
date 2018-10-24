@@ -16,7 +16,10 @@
       <td>{{employee.fname}}</td>
       <td>{{employee.lname1}}</td>
       <td>{{employee.lname2}}</td>
+      <td>{{employee.id_rol}}</td>
+      <td>{{employee.carrer}}</td>
       <td>{{employee.phone}}</td>
+      <td>{{employee.payperhour}}</td>
       <td><button type="submit" class="btn btn-success" (click)="show_edit_employee(employee.id)" >Editar</button></td>
       <td><button type="submit" class="btn " (click)="delete_employee(employee.id)" >Eliminar</button></td>
     </tr>
@@ -44,18 +47,21 @@
       </div>
     </div>
 
+
     <div class="form-group">
       <label for="fname">Nombre</label>
       <input type="text" class="form-control" id="fname"
              required
              [(ngModel)]="employee_to_add.fname" name="fname"
-              placeholder="Kristy, Krissia, Verónica">
+              placeholder="Kristy, Krissia, Verónica"
+              #fname="ngModel">
 
       <div [hidden]="fname.valid || fname.pristine"
            class="alert alert-danger">
         EL nombre es requerido
       </div>
     </div>
+
 
     <div class="form-group">
       <label for="lname1">Primer Apellido</label>
@@ -64,6 +70,8 @@
              placeholder="Picado, Pacheco, Rodríguez">
     </div>
 
+
+
     <div class="form-group">
       <label for="lname2">Segundo Apellido</label>
       <input type="text" class="form-control" id="lname2"
@@ -71,12 +79,38 @@
              placeholder="Rosales, Garay, Flores">
     </div>
 
+
+    <div class="form-group">
+      <label for="id_rol">Cargo</label>
+      <input type="phone" class="form-control" id="id_rol"
+             [(ngModel)]="employee_to_add.id_rol" name="id_rol"
+             placeholder="1,2,3">
+    </div>
+
+
+    <div class="form-group">
+      <label for="carrer">Especialidad</label>
+      <input type="text" class="form-control" id="carrer"
+             [(ngModel)]="employee_to_add.carrer" name="carrer"
+             placeholder="Construcción, Civil, Eléctrico, No aplica">
+    </div>
+
+
     <div class="form-group">
       <label for="Phone">Teléfono</label>
       <input type="phone" class="form-control" id="phone"
              [(ngModel)]="employee_to_add.phone" name="phone"
              placeholder="87654002">
     </div>
+
+
+    <div class="form-group">
+      <label for="payperhour">Pago Por Hora</label>
+      <input type="payperhour" class="form-control" id="payperhour"
+             [(ngModel)]="employee_to_add.payperhour" name="payperhour"
+             placeholder="800">
+    </div>
+
 
     <button type="submit" class="btn btn-success" [disabled]="!addEmployeeForm.form.valid">Submit</button>
   </form>
@@ -128,10 +162,35 @@
     </div>
 
     <div class="form-group">
+      <label for="id_rol">Cargo</label>
+      <input type="phone" class="form-control" id="id_rol"
+             [(ngModel)]="employee_to_edit.id_rol" name="id_rol"
+             placeholder="1,2,3">
+    </div>
+
+
+    <div class="form-group">
+      <label for="carrer">Especialidad</label>
+      <input type="text" class="form-control" id="carrer"
+             [(ngModel)]="employee_to_edit.carrer" name="carrer"
+             placeholder="Construcción, Civil, Eléctrico, No aplica">
+    </div>
+
+
+    <div class="form-group">
       <label for="phone">Teléfono</label>
       <input type="phone" class="form-control" id="phone"
              [(ngModel)]="employee_to_edit.phone" name="phone">
     </div>
+
+
+    <div class="form-group">
+      <label for="payperhour">Pago Por Hora</label>
+      <input type="payperhour" class="form-control" id="payperhour"
+             [(ngModel)]="employee_to_edit.payperhour" name="payperhour"
+             placeholder="800">
+    </div>
+
 
     <button type="submit" class="btn btn-success" [disabled]="!editEmployeeForm.form.valid">Submit</button>
   </form>
