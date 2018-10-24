@@ -11,15 +11,30 @@ export class ClientsService {
       console.log("ClientService works");
     }
     getClients(){
-      return this.httpClient.get<Client[]>("../../assets/clients.json");
+
+      // return this.httpClient.get<Client[]>("../../assets/clients.json");
+      return this.httpClient.get<Client[]>("http://172.18.95.165:8088/api/client");
     }
-    getClient(id:number){
+    getClient(id:string){
+      return this.httpClient.get<Client[]>("http://172.18.95.165:8088/api/client/"+id);
       // return this.httpClient.get<Material[]>("../../assets/materials.json");
     }
-    updateClient(invoice:Client){
+    updateClient(client:Client){
       // return this.httpClient.get<Material[]>("../../assets/materials.json");
     }
-    deleteClient(id:number){
-      // return this.httpClient.get<Material[]>("../../assets/materials.json");
+    deleteClient(id:string){
+      let url:string = "http://172.18.95.165:8088/api/client/delete/"+id;
+      console.log(url);
+      // return this.httpClient.delete("http://172.18.95.165:8088/api/client/delete/"+id);
+      return this.httpClient.delete(url);
+      // this.httpClient.delete(url).subscribe(
+      //       data => {
+      //           console.log("PATCH Request is successful ", data);
+      //       },
+      //       error => {
+      //           console.log("Error", error);
+      //       }
+      //   );
+
     }
 }
