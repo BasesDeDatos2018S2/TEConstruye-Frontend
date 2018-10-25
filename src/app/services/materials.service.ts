@@ -7,20 +7,32 @@ import { Material } from '../classes/material';
 })
 export class MaterialsService {
 
+  baseurl:string;
   constructor(private httpClient:HttpClient) {
-    console.log("MaterialsService works");
+    this.baseurl = "http://172.18.95.165:8088/api/material/";
+    console.log("EmployeeService works");
   }
-
   getMaterials(){
-    return this.httpClient.get<Material[]>("../../assets/materials.json");
+    return this.httpClient.get<Material[]>(this.baseurl);
   }
-  getMaterial(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+  getMaterial(id:string){
+    return this.httpClient.get<Material[]>(this.baseurl+id);
   }
   updateMaterial(material:Material){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+    return this.httpClient.put(this.baseurl+"update/", material);
   }
-  deleteMaterial(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+
+  createMaterial(material:Material){
+    return this.httpClient.post(this.baseurl+"add/", material);
   }
+
+  deleteMaterial(id:string){
+    return this.httpClient.delete(this.baseurl+"delete/"+id);
+  }
+
+
+
+
+
+
 }

@@ -6,21 +6,30 @@ import { Stage } from '../classes/stage';
   providedIn: 'root'
 })
 export class StagesService {
-
+  baseurl:string;
   constructor(private httpClient:HttpClient) {
-    console.log("MaterialsService works");
+    this.baseurl = "http://172.18.95.165:8088/api/stage/";
+    console.log("StageService works");
+  }
+  getStages(){
+    return this.httpClient.get<Stage[]>(this.baseurl);
+  }
+  getStage(id:string){
+    return this.httpClient.get<Stage[]>(this.baseurl+id);
+  }
+  updateStage(stage:Stage){
+    return this.httpClient.put(this.baseurl+"update/", stage);
   }
 
-  getStages(){
-    return this.httpClient.get<Stage[]>("../../assets/stages.json");
+  createStage(stage:Stage){
+    return this.httpClient.post(this.baseurl+"add/", stage);
   }
-  getStage(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+
+  deleteStage(id:string){
+    return this.httpClient.delete(this.baseurl+"delete/"+id);
   }
-  updateStage(material:Stage){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
-  }
-  deleteStage(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
-  }
+
+
+
+
 }

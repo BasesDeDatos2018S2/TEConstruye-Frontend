@@ -7,19 +7,29 @@ import { Invoice } from '../classes/invoice';
 })
 export class InvoicesService {
 
+  baseurl:string;
   constructor(private httpClient:HttpClient) {
+    this.baseurl = "http://172.18.95.165:8088/api/invoice/";
     console.log("InvicesService works");
   }
+
   getInvoices(){
-    return this.httpClient.get<Invoice[]>("../../assets/invoices.json");
+    return this.httpClient.get<Invoice[]>(this.baseurl);
   }
-  getInvoice(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+
+  getInvoice(id:string){
+    return this.httpClient.get<Invoice[]>(this.baseurl+id);
   }
+
   updateInvoice(invoice:Invoice){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+    return this.httpClient.put(this.baseurl+"update/", invoice);
   }
-  deleteInvoice(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+
+  createInvoice(invoice:Invoice){
+    return this.httpClient.post(this.baseurl+"add/", invoice);
+  }
+
+  deleteInvoice(id:string){
+    return this.httpClient.delete(this.baseurl+"delete/"+id);
   }
 }
