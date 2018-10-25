@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {BaseRequestOptions, HttpModule} from '@angular/http';
+import {DpDatePickerModule} from 'ng2-date-picker';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
@@ -12,13 +13,15 @@ import { EditStageComponent } from './components/edit-stage/edit-stage.component
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewEmployeesComponent } from './components/view-employees/view-employees.component';
-
+import { ViewPayrollComponent } from './components/view-payroll/view-payroll.component';
 import { MaterialsService } from './services/materials.service';
 import { EmployeesService } from './services/employees.service';
+import { ProjectsService } from './services/projects.service';
 import { StagesService } from './services/stages.service';
 import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
 import { ViewClientsComponent } from './components/view-clients/view-clients.component';
 import { ViewReportsComponent } from './components/view-reports/view-reports.component';
+import { PayrollsService } from './services/payrolls.service';
 
 @NgModule({
   declarations: [
@@ -33,19 +36,23 @@ import { ViewReportsComponent } from './components/view-reports/view-reports.com
     ViewEmployeesComponent,
     ViewProjectsComponent,
     ViewClientsComponent,
-    ViewReportsComponent
+    ViewReportsComponent,
+    ViewPayrollComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    DpDatePickerModule
 
   ],
   providers: [
     MaterialsService,
     EmployeesService,
-    StagesService
+    StagesService,
+    ProjectsService,
+    PayrollsService
   ],
   bootstrap: [AppComponent]
 })
