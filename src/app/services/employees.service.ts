@@ -6,19 +6,27 @@ import { Employee } from '../classes/employee';
 })
 export class EmployeesService {
 
+  baseurl:string;
   constructor(private httpClient:HttpClient) {
+    this.baseurl = "http://172.18.95.165:8088/api/employee/";
     console.log("EmployeeService works");
   }
   getEmployees(){
-    return this.httpClient.get<Employee[]>("../../assets/employees.json");
+    return this.httpClient.get<Employee[]>(this.baseurl);
   }
-  getEmployee(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+  getEmployee(id:string){
+    return this.httpClient.get<Employee[]>(this.baseurl+id);
   }
   updateEmployee(employee:Employee){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+    return this.httpClient.put(this.baseurl+"update/", employee);
   }
-  deleteEmployee(id:number){
-    // return this.httpClient.get<Material[]>("../../assets/materials.json");
+
+  createEmployee(employee:Employee){
+    return this.httpClient.post(this.baseurl+"add/", employee);
   }
+
+  deleteEmployee(id:string){
+    return this.httpClient.delete(this.baseurl+"delete/"+id);
+  }
+
 }
