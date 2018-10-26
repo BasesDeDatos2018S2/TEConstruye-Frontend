@@ -22,10 +22,10 @@
 
 
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Horas</label>
-  <input type="number" class="form-control" placeholder="0">
+  <input type="number" class="form-control" placeholder="0" name="hours">
 
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fecha</label>
-<dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig"></dp-date-picker>
+<dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig" name="date" ></dp-date-picker>
   <button type="submit" class="btn btn-primary my-1">Submit</button>
 </form>
 
