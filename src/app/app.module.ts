@@ -18,6 +18,7 @@ import { MaterialsService } from './services/materials.service';
 import { EmployeesService } from './services/employees.service';
 import { ProjectsService } from './services/projects.service';
 import { StagesService } from './services/stages.service';
+import { LoginService } from './services/login.service';
 import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
 import { ViewClientsComponent } from './components/view-clients/view-clients.component';
 import { ViewReportsComponent } from './components/view-reports/view-reports.component';
@@ -57,6 +58,7 @@ import { Observable } from 'rxjs';
     StagesService,
     ProjectsService,
     PayrollsService,
+    LoginService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

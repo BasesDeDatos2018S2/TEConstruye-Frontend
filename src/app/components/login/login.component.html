@@ -4,11 +4,11 @@
   <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
 
     <div class="form-group">
-      <label for="email">Correo electronico</label>
-      <input type="email" class="form-control" id="email"
+      <label for="id">Numero de cedula</label>
+      <input type="text" class="form-control" id="id"
              required
-             [(ngModel)]="user.email" name="email"
-             #name="ngModel" placeholder="admin@teconstruye.com">
+             [(ngModel)]="user.ssn" name="id"
+             #id="ngModel" placeholder="116875439">
 
       <!-- <div [hidden]="email.valid || email.pristine"
            class="alert alert-danger">
