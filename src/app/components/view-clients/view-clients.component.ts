@@ -84,15 +84,6 @@ export class ViewClientsComponent implements OnInit {
           }
       );
 
-
-
-    // for (let i = 0; i < this.client_list.length; i++) {
-    //   if (this.client_list[i].identification == identification) {
-    //     console.log(this.client_list[i]);
-    //     this.client_list.splice(i, 1);
-    //     break;
-    //   }
-    // }
   }
 
   updateClientList(){
