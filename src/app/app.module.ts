@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {BaseRequestOptions, HttpModule} from '@angular/http';
+import { RouterModule, Route} from '@angular/router';
+
 import {DpDatePickerModule} from 'ng2-date-picker';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -28,6 +30,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 import { Observable } from 'rxjs';
 
+const routes:Route[] = [
+  {path:'', component:AppComponent},
+  {path:'login', component:LoginComponent},
+  {path:'clients', component:ViewClientsComponent},
+  {path:'projects', component:ViewProjectsComponent},
+  {path:'materials', component:ViewMaterialsComponent},
+  {path:'payroll', component:ViewPayrollComponent},
+  {path:'reports', component:ViewReportsComponent},
+  {path:'employees', component:ViewEmployeesComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +63,9 @@ import { Observable } from 'rxjs';
     FormsModule,
     HttpClientModule,
     HttpModule,
-    DpDatePickerModule
+    DpDatePickerModule,
+    RouterModule.forRoot(routes)
+
 
 
   ],

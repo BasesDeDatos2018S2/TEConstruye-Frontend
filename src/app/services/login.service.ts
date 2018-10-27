@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { User } from '../classes/user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class LoginService {
 
   baseurl:string;
   constructor(private httpClient:HttpClient) {
-    this.baseurl = "http://192.168.100.13:8091/api/login/";
+    this.baseurl = environment.apiUrl+"login/";
     console.log("EmployeeService works");
   }
   // getEmployees(){
