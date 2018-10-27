@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TEConstruye</a>
+
+  <a class="navbar-brand" href="#">TEConstruye {{current_page}} </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,22 +10,22 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
         <!-- <a class="nav-link" href="#">Proyectos <span class="sr-only">(current)</span></a> -->
-        <a class="nav-link" href="#">Proyectos </a>
+        <a class="nav-link"  [ngClass]="{'active': current_page=='projects'}" href="#">Proyectos </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Clientes</a>
+        <a class="nav-link" [ngClass]="{'active': current_page=='clients'}" href="#">Clientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Materiales</a>
+        <a class="nav-link" [ngClass]="{'active': current_page=='materials'}" href="#">Materiales</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Planilla</a>
+        <a class="nav-link" [ngClass]="{'active': current_page=='payrolls'}" href="#">Planilla</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Reportes</a>
+        <a class="nav-link" [ngClass]="{'active': current_page=='reports'}" href="#">Reportes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Proveedores</a>
+        <a class="nav-link" [ngClass]="{'active': current_page=='providers'}" href="#">Proveedores</a>
       </li>
 
       
