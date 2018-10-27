@@ -22,6 +22,9 @@ import { ViewProjectsComponent } from './components/view-projects/view-projects.
 import { ViewClientsComponent } from './components/view-clients/view-clients.component';
 import { ViewReportsComponent } from './components/view-reports/view-reports.component';
 import { PayrollsService } from './services/payrolls.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
+import { Observable } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -46,13 +49,19 @@ import { PayrollsService } from './services/payrolls.service';
     HttpModule,
     DpDatePickerModule
 
+
   ],
   providers: [
     MaterialsService,
     EmployeesService,
     StagesService,
     ProjectsService,
-    PayrollsService
+    PayrollsService,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })
