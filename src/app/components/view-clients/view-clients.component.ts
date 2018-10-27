@@ -67,7 +67,7 @@ export class ViewClientsComponent implements OnInit {
     this.edit_client = true;
     for (let client of this.client_list) {
       if (client.identification === identification) {
-        this.client_to_edit = client;
+        this.client_to_edit = Object.assign({}, client);;
         break;
       }
     }

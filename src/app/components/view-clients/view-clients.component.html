@@ -94,6 +94,8 @@
 
 
     <button type="submit" class="btn btn-success" [disabled]="!addClientForm.form.valid">Submit</button>
+    <button type="cancel" class="btn btn-danger" (click)="add_client = false">Cancel</button>
+
   </form>
 </div>
 
@@ -159,5 +161,7 @@
     </div>
 
     <button type="submit" class="btn btn-success" [disabled]="!editClientForm.form.valid">Submit</button>
-  </form>
+    <button type="cancel" class="btn btn-danger" (click)="edit_client = false">Cancel</button>
+
+    </form>
 </div>
