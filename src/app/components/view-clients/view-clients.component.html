@@ -1,5 +1,5 @@
 <h1>Clientes</h1>
-<button type="submit" class="btn btn-success" (click)="updateClientList()" >Update</button>
+<!-- <button type="submit" class="btn btn-success" (click)="updateClientList()" >Update</button> -->
 
 <div *ngIf="!add_client && !edit_client">
 
@@ -21,8 +21,8 @@
       <td>{{client.lastname2}}</td>
       <td>{{client.email}}</td>
       <td>{{client.phone}}</td>
-      <td><button type="submit" class="btn btn-success" (click)="show_edit_client(client.identification)" >Editar</button></td>
-      <td><button type="submit" class="btn btn-danger " (click)="delete_client(client.identification)" >Eliminar</button></td>
+      <td><button type="submit" class="btn btn-success" (click)="show_edit_client(client.identification)" >Editar</button>
+      <button type="submit" class="btn btn-danger " (click)="delete_client(client.identification)" >Eliminar</button></td>
     </tr>
   </tbody>
 </table>
@@ -41,12 +41,12 @@
       <input type="text" class="form-control" id="Assn"
              required
              [(ngModel)]="client_to_add.identification" name="Assn"
-             #ssn="ngModel" placeholder="601760756">
+             #Assn="ngModel" placeholder="123456789" ng-pattern="/^[0-9]{1,9}$/">
 
-      <!-- <div [hidden]="Assn.valid || Assn.pristine"
+      <div *ngIf="Assn.invalid && (Assn.dirty || Assn.touched)"
            class="alert alert-danger">
         La cédula es requerida
-      </div> -->
+      </div>
     </div>
 
 
@@ -55,7 +55,7 @@
       <input type="text" class="form-control" id="Afname"
              required
              [(ngModel)]="client_to_add.name" name="Afname"
-              placeholder="Kristy, Krissia, Verónica">
+              placeholder="Kristy, Krissia, Verónica" #Afname="ngModel">
 
       <div [hidden]="Afname.valid || Afname.pristine"
            class="alert alert-danger">
@@ -67,21 +67,21 @@
       <label for=Alname1>Primer Apellido</label>
       <input type="text" class="form-control" id="Alanme1"
              [(ngModel)]="client_to_add.lastname1" name="Alname1"
-             placeholder=" Solis,  Miranda,  Rodriguez">
+             placeholder=" Solis,  Miranda,  Rodriguez" required>
     </div>
 
     <div class="form-group">
       <label for="Alname2">Segundo Apellido</label>
       <input type="text" class="form-control" id="Alname2"
              [(ngModel)]="client_to_add.lastname2" name="Alanme2"
-             placeholder="Rivera, Chachón, Garay">
+             placeholder="Rivera, Chachón, Garay" required>
     </div>
 
     <div class="form-group">
       <label for="Aemail">Correo</label>
-      <input type="text" class="form-control" id="Aemail"
+      <input type="email" class="form-control" id="Aemail"
              [(ngModel)]="client_to_add.email" name="Aemail"
-             placeholder="ejemplo@correo.com">
+             placeholder="ejemplo@correo.com" required>
 
     </div>
 
@@ -89,7 +89,7 @@
       <label for="APhone">Teléfono</label>
       <input type="phone" class="form-control" id="Aphone"
              [(ngModel)]="client_to_add.phone" name="Aphone"
-             placeholder="87654002">
+             placeholder="87654002" required>
     </div>
 
 
@@ -98,14 +98,14 @@
 </div>
 
 
-<div class="container" *ngIf="edit_client">
+<div class="container" *ngIf="edit_client" >
 <h1>Editar Cliente</h1>
   <form (ngSubmit)="onSubmitEdit()" #editClientForm="ngForm">
 
     <div class="form-group">
       <label for="ssn">Cédula</label>
       <input type="text" class="form-control" id="ssn"
-             required
+             required [disabled]="true"
              [(ngModel)]="client_to_edit.identification" name="ssn"
              #ssn="ngModel" placeholder="601760756">
 
@@ -133,21 +133,21 @@
       <label for=lname1>Primer Apellido</label>
       <input type="text" class="form-control" id="lanme1"
              [(ngModel)]="client_to_edit.lastname1" name="lname1"
-             placeholder=" Solis,  Miranda,  Rodriguez">
+             placeholder=" Solis,  Miranda,  Rodriguez" required>
     </div>
 
     <div class="form-group">
       <label for="lname2">Segundo Apellido</label>
       <input type="text" class="form-control" id="lname2"
              [(ngModel)]="client_to_edit.lastname2" name="lanme2"
-             placeholder="Rivera, Chachón, Garay">
+             placeholder="Rivera, Chachón, Garay" required>
     </div>
 
     <div class="form-group">
       <label for="email">Correo</label>
       <input type="text" class="form-control" id="email"
              [(ngModel)]="client_to_edit.email" name="email"
-             placeholder="ejemplo@correo.com">
+             placeholder="ejemplo@correo.com" required>
 
     </div>
 
@@ -155,7 +155,7 @@
       <label for="Phone">Teléfono</label>
       <input type="phone" class="form-control" id="phone"
              [(ngModel)]="client_to_edit.phone" name="phone"
-             placeholder="87654002">
+             placeholder="87654002" required>
     </div>
 
     <button type="submit" class="btn btn-success" [disabled]="!editClientForm.form.valid">Submit</button>

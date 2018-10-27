@@ -21,7 +21,7 @@ export class ViewClientsComponent implements OnInit {
     this.client_to_add = new Client("","","","","","",[]);
     this.client_to_edit = new Client( "","","","","","",[]);
 
-    this.header_list = [ "Cédula","Nombre","Primer Apellido","Segundo Apellido", "Correo", "Teléfono","",""];
+    this.header_list = [ "Cédula","Nombre","Primer Apellido","Segundo Apellido", "Correo", "Teléfono","Opciones"];
 
     this.updateClientList();
     console.log(this.client_list);
