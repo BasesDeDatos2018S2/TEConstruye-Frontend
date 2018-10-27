@@ -9,7 +9,7 @@ export class MaterialsService {
 
   baseurl:string;
   constructor(private httpClient:HttpClient) {
-    this.baseurl = "http://172.18.95.165:8088/api/material/";
+    this.baseurl = "http://192.168.100.13:8091/api/material/";
     console.log("EmployeeService works");
   }
   getMaterials(){

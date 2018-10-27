@@ -15,7 +15,7 @@
     <tr *ngFor="let material of material_list">
       <!-- <th scope="row">{{material.id}}</th> -->
       <th scope="row">{{material.name}}</th>
-      <td>{{material.detail}}</td>
+      <td>{{material.description}}</td>
       <td>{{material.price}}</td>
       <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Editar</button></td>
       <td><button type="submit" class="btn " (click)="delete_material(material.id)" >Eliminar</button></td>
@@ -47,7 +47,7 @@
     <div class="form-group">
       <label for="detail">Contrasena</label>
       <input type="text" class="form-control" id="detail"
-             [(ngModel)]="material_to_add.detail" name="detail"
+             [(ngModel)]="material_to_add.description" name="detail"
              placeholder="datos del material">
     </div>
 
@@ -76,7 +76,7 @@
     <div class="form-group">
       <label for="detail">Detalle</label>
       <input type="text" class="form-control" id="detail"
-             [(ngModel)]="material_to_edit.detail" name="detail"
+             [(ngModel)]="material_to_edit.description" name="detail"
              placeholder="datos del material">
     </div>
 
