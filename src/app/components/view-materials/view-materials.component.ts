@@ -21,7 +21,7 @@ export class ViewMaterialsComponent implements OnInit {
     this.edit_material = false;
     this.material_to_add = new Material(1, "", "", 0);
     this.material_to_edit = new Material(1, "", "", 0);
-    this.header_list = ["Nombre", "Descripcion", "Precio", "", ""];
+    this.header_list = ["Nombre", "Descripcion", "Precio", "Opciones"];
     this.materialsService.getMaterials().subscribe(data => {
       console.log("data:", data);
       this.material_list = data;
@@ -33,18 +33,32 @@ export class ViewMaterialsComponent implements OnInit {
   ngOnInit() {
   }
   onSubmitAdd() {
-    this.material_to_add.id = this.material_list.length;
-    this.material_list.push(this.material_to_add);
+    this.materialsService.createMaterial(this.material_to_add).subscribe(
+          data => {
+              console.log("POST Request is successful ", data);
+              this.updateMaterialList();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
     this.add_material = false;
+    this.material_to_add = new Material(1, "", "", 0);
   }
 
   onSubmitEdit() {
-    for (let material of this.material_list) {
-      if (material.id === this.material_to_edit.id) {
-        material = this.material_to_edit;
-      }
-    }
+    this.materialsService.updateMaterial(this.material_to_edit).subscribe(
+          data => {
+              console.log("PUT Request is successful ", data);
+              this.updateMaterialList();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
+
     this.edit_material = false;
+    this.material_to_edit = new Material(1, "", "", 0);
 
   }
 
@@ -54,12 +68,16 @@ export class ViewMaterialsComponent implements OnInit {
   show_edit_material(id) {
     console.log("edit:", id);
     this.edit_material = true;
+
     for (let material of this.material_list) {
       if (material.id === id) {
-        this.material_to_edit = material;
+        this.material_to_edit = Object.assign({}, material);
         break;
       }
     }
+
+
+
   }
 
 
@@ -74,10 +92,6 @@ export class ViewMaterialsComponent implements OnInit {
               console.log("Error", error);
           }
       );
-
-
-
-
   }
 
 
@@ -88,4 +102,6 @@ export class ViewMaterialsComponent implements OnInit {
       this.material_list = data;
     });
   }
+
+
 }

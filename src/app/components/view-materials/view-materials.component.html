@@ -18,12 +18,12 @@
       <th scope="row">{{material.name}}</th>
       <td>{{material.description}}</td>
       <td>{{material.price}}</td>
-      <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Editar</button></td>
-      <td><button type="submit" class="btn " (click)="delete_material(material.id)" >Eliminar</button></td>
+      <td><button class="btn btn-success" (click)="show_edit_material(material.id)" >Editar</button>
+        <button  class="btn btn-danger " (click)="delete_material(material.id)" >Eliminar</button></td>
     </tr>
   </tbody>
 </table>
-<button type="submit" class="btn btn-success" (click)="add_material=true" >Agregar material</button>
+<button  class="btn btn-success" (click)="add_material=true" >Agregar material</button>
 
 </div>
 
@@ -33,26 +33,32 @@
   <form (ngSubmit)="onSubmitAdd()" #addMaterialForm="ngForm">
 
     <div class="form-group">
-      <label for="name">Correo electronico</label>
-      <input type="text" class="form-control" id="name"
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="Aname"
              required
-             [(ngModel)]="material_to_add.name" name="name"
-             placeholder="varilla, cemento,etc">
+             [(ngModel)]="material_to_add.name" name="Aname"
+              placeholder="varilla, cemento,etc" #Aname="ngModel">
 
-      <div [hidden]="name.valid || name.pristine"
+      <div [hidden]="Aname.valid || Aname.pristine"
            class="alert alert-danger">
         el nombre es requerido
       </div>
     </div>
 
     <div class="form-group">
-      <label for="detail">Contrasena</label>
-      <input type="text" class="form-control" id="detail"
-             [(ngModel)]="material_to_add.description" name="detail"
+      <label for="detail">Detalle</label>
+      <input type="text" class="form-control" id="Adetail"
+             [(ngModel)]="material_to_add.description" name="Adetail"
              placeholder="datos del material">
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="!addMaterialForm.form.valid">Iniciar sesion</button>
+    <div class="form-group">
+      <label for="detail">Precio</label>
+      <input type="number" class="form-control" id="Aprice"
+             [(ngModel)]="material_to_add.price" name="Aprice">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!addMaterialForm.form.valid">Submit</button>
+    <button type="cancel" class="btn btn-danger" (click)="add_material = false">Cancel</button>
   </form>
 </div>
 
@@ -66,9 +72,9 @@
       <input type="text" class="form-control" id="name"
              required
              [(ngModel)]="material_to_edit.name" name="name"
-              placeholder="varilla, cemento,etc">
+              placeholder="varilla, cemento,etc" #Ename="ngModel">
 
-      <div [hidden]="name.valid || name.pristine"
+      <div [hidden]="Ename.valid || Ename.pristine"
            class="alert alert-danger">
         el nombre es requerido
       </div>
@@ -87,5 +93,6 @@
              [(ngModel)]="material_to_edit.price" name="price">
     </div>
     <button type="submit" class="btn btn-success" [disabled]="!editMaterialForm.form.valid">Submit</button>
+    <button type="cancel" class="btn btn-danger" (click)="edit_material = false">Cancel</button>
   </form>
 </div>
