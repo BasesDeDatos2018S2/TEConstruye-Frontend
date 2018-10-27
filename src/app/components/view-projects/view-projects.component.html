@@ -17,8 +17,10 @@
         <td>{{getEmployeeName(project.manager) }}</td>
         <td>{{project.ubication}}</td>
         <td>{{project.id_client}}</td>
-        <td><button type="submit" class="btn btn-success" (click)="show_see_project(project.id)">Ver</button></td>
-        <td><button type="submit" class="btn btn-danger " (click)="deleteProject(project.id)">Eliminar</button></td>
+        <td>{{project.totalBudget}}</td>
+        <td>{{project.totalCost}}</td>
+        <td><button type="submit" class="btn btn-success" (click)="show_see_project(project.id)">Ver</button>
+        <button type="submit" class="btn btn-danger " (click)="deleteProject(project.id)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
@@ -67,6 +69,8 @@
 
 
     <button type="submit" class="btn btn-success" [disabled]="!addProjectForm.form.valid">Submit</button>
+    <button type="cancel" class="btn btn-danger" (click)="add_project = false">Cancel</button>
+
   </form>
 </div>
 

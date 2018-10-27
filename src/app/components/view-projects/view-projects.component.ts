@@ -29,7 +29,7 @@ export class ViewProjectsComponent implements OnInit {
     this.edit_project = false;
     this.project_to_add = new Project(1, "","","","",);
     this.project_to_edit = new Project(1, "","","","",);
-    this.header_list = [ "Nombre","Encargado","Ubicación", "Cliente", "",""];
+    this.header_list = [ "Nombre","Encargado","Ubicación", "Cliente", "Presupuesto","Costo actual","Opciones"];
     this.updateData();
     // this.project_list.push(new Project(0, "Casa","Ingeniero Mauricio","Cartago", "Gustavo","",""));
     // this.project_list.push(new Project(1, "Jardin","Arquitecto Gustavo","San José","Juan","",""));
