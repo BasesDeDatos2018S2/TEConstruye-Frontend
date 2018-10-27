@@ -1,0 +1,68 @@
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+
+.left {
+  font-size:18pt;
+  padding:15px;
+  color:#008080;
+	float: left;
+}
+.right {
+  font-size:18pt;
+  padding:15px;
+  color:#008080;
+	float: right;
+}
+.center {
+  font-size:18pt;
+  padding:15px;
+  color:#008080;
+  text-align: center;
+}
+
+.left2 {
+  font-size:14pt;
+  padding:15px;
+  color:#404040;
+	float: left;
+}
+.right2 {
+  font-size:14pt;
+  padding:15px;
+  color:#404040;
+	float: right;
+}
+.center2 {
+  font-size:14pt;
+  padding:15px;
+  color:#404040;
+  text-align: center;
+}
+
+.right3 {
+  font-size:18pt;
+  padding:15px;
+  color:#008080;
+  text-align: right;
+}
+
+.nameproyect {
+  font-size:20pt;
+  padding:15px;
+  color:#404040;
+  text-align: left;
+}
+
+.right4 {
+  font-size:14pt;
+  padding:15px;
+  color:#404040;
+	text-align: right;
+}

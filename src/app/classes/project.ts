@@ -1,4 +1,3 @@
-import { Client } from './client'
 export class Project {
   constructor(
    public id: number,
@@ -6,5 +5,7 @@ export class Project {
    public location: string,
    public id_client: string,
    public id_manager: string,
+   public date_start: string,
+   public date_finish: string,
  ) {  }
 }

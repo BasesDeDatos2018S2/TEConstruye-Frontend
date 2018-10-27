@@ -1,0 +1,24 @@
+<h1> Proyecto</h1>
+<p class="nameproyect"> {{project.name}}</p>
+
+<section id="Información">
+
+   <h3 class="left" > Cliente</h3>
+   <h3 class="right" > Encargado</h3>
+   <h3 class="center" > Ubicación</h3>
+
+   <p class="left2">{{project.id_client}} </p>
+   <p class="right2">{{project.id_manager}} </p>
+   <p class="center2">{{project.location}} </p>
+
+   <h3 class="left" > Fecha Inicio</h3>
+   <h3 class="right3" > Fecha Finalización</h3>
+
+   <p class="left2">{{project.date_start}} </p>
+   <p class="right4">{{project.date_finish}} </p>
+
+</section>
+
+<p class="center"> ----------------------------------------------------------------------------------- </p>
+
+<app-view-stage></app-view-stage>
