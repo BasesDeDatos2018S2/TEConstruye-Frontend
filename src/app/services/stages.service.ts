@@ -16,7 +16,7 @@ export class StagesService {
     return this.httpClient.get<Stage[]>(this.baseurl);
   }
   getStage(id:string){
-    return this.httpClient.get<Stage[]>(this.baseurl+id);
+    return this.httpClient.get<Stage>(this.baseurl+id);
   }
   updateStage(stage:Stage){
     return this.httpClient.put(this.baseurl+"update/", stage);

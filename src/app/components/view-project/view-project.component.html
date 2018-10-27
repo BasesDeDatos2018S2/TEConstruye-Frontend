@@ -7,18 +7,18 @@
    <h3 class="right" > Encargado</h3>
    <h3 class="center" > Ubicación</h3>
 
-   <p class="left2">{{project.id_client}} </p>
-   <p class="right2">{{project.id_manager}} </p>
-   <p class="center2">{{project.location}} </p>
+   <p class="left2">{{client.name}} {{client.lastname1}} {{client.lastname2 }} </p>
+   <p class="right2">{{employee.name}} {{employee.lastname1}} {{employee.lastname2}} </p>
+   <p class="center2">{{project.ubication}} </p>
 
-   <h3 class="left" > Fecha Inicio</h3>
-   <h3 class="right3" > Fecha Finalización</h3>
+   <!-- <h3 class="left" > Fecha Inicio</h3>
+   <h3 class="right3" > Fecha Finalización</h3> -->
 
-   <p class="left2">{{project.date_start}} </p>
-   <p class="right4">{{project.date_finish}} </p>
+   <!-- <p class="left2">{{project.date_start}} </p>
+   <p class="right4">{{project.date_finish}} </p> -->
 
 </section>
 
-<p class="center"> ----------------------------------------------------------------------------------- </p>
+<!-- <p class="center"> ----------------------------------------------------------------------------------- </p> -->
 
-<app-view-stage></app-view-stage>
+<app-stages></app-stages>

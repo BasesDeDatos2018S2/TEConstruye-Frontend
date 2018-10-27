@@ -17,7 +17,7 @@ export class PayrollsService {
     return this.httpClient.get<Payroll[]>(this.baseurl);
   }
   getPayroll(id:number){
-    return this.httpClient.get<Payroll[]>(this.baseurl+id);
+    return this.httpClient.get<Payroll>(this.baseurl+id);
   }
   updatePayroll(payroll:Payroll){
     return this.httpClient.put(this.baseurl+"update/", payroll);

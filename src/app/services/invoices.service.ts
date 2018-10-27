@@ -19,7 +19,7 @@ export class InvoicesService {
   }
 
   getInvoice(id:string){
-    return this.httpClient.get<Invoice[]>(this.baseurl+id);
+    return this.httpClient.get<Invoice>(this.baseurl+id);
   }
 
   updateInvoice(invoice:Invoice){

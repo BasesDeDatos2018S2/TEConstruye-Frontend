@@ -15,7 +15,7 @@ export class ClientsService {
       return this.httpClient.get<Client[]>(this.baseurl);
     }
     getClient(id:string){
-      return this.httpClient.get<Client[]>(this.baseurl+id);
+      return this.httpClient.get<Client>(this.baseurl+id);
     }
     updateClient(client:Client){
       return this.httpClient.put(this.baseurl+"update/", client);
