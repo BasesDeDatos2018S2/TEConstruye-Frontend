@@ -5,7 +5,7 @@
 
 
 
-  <select class="custom-select my-1 mr-sm-2"  [(ngModel)]="payroll_to_add.project" name="projectID" >
+  <select class="custom-select my-1 mr-sm-2"  [(ngModel)]="payroll_to_add.id_project" name="projectID" >
     <option selected>Choose...</option>
     <option *ngFor=" let project of project_list"  [value]="project.id">{{project.name}}</option>
 
@@ -14,18 +14,18 @@
 
 
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Empleado</label>
-  <select class="custom-select my-1 mr-sm-2" [(ngModel)]="payroll_to_add.employee" name="employeeID">
+  <select class="custom-select my-1 mr-sm-2" [(ngModel)]="payroll_to_add.id_employee" name="employeeID">
     <option selected>Choose...</option>
-    <option *ngFor=" let employee of employee_list" [value]="employee.id">{{employee.fname + " " +employee.lname1 + " " + employee.lname2 }}</option>
+    <option *ngFor=" let employee of employee_list" [value]="employee.id">{{employee.name + " " +employee.lastname1 + " " + employee.lastname2 }}</option>
   </select>
 
 
 
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Horas</label>
-  <input type="number" class="form-control" placeholder="0" name="hours">
+  <input type="number" class="form-control" placeholder="0" name="hours" [(ngModel)]="payroll_to_add.hours">
 
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fecha</label>
-<dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig" name="date" ></dp-date-picker>
+<dp-date-picker [(ngModel)]="payroll_to_add.date" [config]="datePickerConfig" name="date" ></dp-date-picker>
   <button type="submit" class="btn btn-primary my-1">Submit</button>
 </form>
 
@@ -48,8 +48,8 @@
   <tbody>
     <tr *ngFor="let payroll of payroll_list">
       <!-- <th scope="row">{{material.id}}</th> -->
-      <th scope="row">{{ getProjectName(payroll.project)}}</th>
-      <td>{{ getEmployeeName(payroll.employee) }}</td>
+      <th scope="row">{{ getProjectName(payroll.id_project)}}</th>
+      <td>{{ getEmployeeName(payroll.id_employee) }}</td>
       <td>{{payroll.hours}}</td>
       <td>{{payroll.date | date:'MM/dd/yyyy'}}</td>
       <!-- <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Editar</button></td> -->

@@ -16,7 +16,7 @@ export class PayrollsService {
   getPayrolls(){
     return this.httpClient.get<Payroll[]>(this.baseurl);
   }
-  getPayroll(id:string){
+  getPayroll(id:number){
     return this.httpClient.get<Payroll[]>(this.baseurl+id);
   }
   updatePayroll(payroll:Payroll){
@@ -27,6 +27,6 @@ export class PayrollsService {
     return this.httpClient.post(this.baseurl+"add/", payroll);
   }
 
-  deletePayroll(id:string){
+  deletePayroll(id:number){
     return this.httpClient.delete(this.baseurl+"delete/"+id);
   }}
