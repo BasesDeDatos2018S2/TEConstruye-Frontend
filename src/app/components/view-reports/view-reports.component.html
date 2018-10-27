@@ -1,103 +1,58 @@
 <h1>Reportes</h1>
-<p>
-  <a class="btn btn-outline-info" data-toggle="collapse" href="#budget" role="button" aria-expanded="false" aria-controls="budget">
-    Presupuesto
-  </a>
-  <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#payroll" aria-expanded="false" aria-controls="payroll">
-    Planilla
-  </button>
 
-  <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#expenses" aria-expanded="false" aria-controls="expenses">
-    Gastos
-  </button>
-
-  <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#status" aria-expanded="false" aria-controls="status">
-    Estado
-  </button>
-</p>
-<div class="collapse" id="budget">
+<div class="" id="budget">
 
   <div class="card card-body">
 Presupuesto
+<form class="form-inline">
+<label class="my-1 mr-2" for="Proyecto">Proyecto</label>
+<select class="custom-select my-1 mr-sm-2"  [(ngModel)]="id" name="projectID" >
+  <option selected>Choose...</option>
+  <option *ngFor=" let project of project_list"  [value]="project.id">{{project.name}}</option>
+</select>
 
-    <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Proyecto</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-  <button type="submit" class="btn btn-primary my-1">Submit</button>
+<label class="my-1 mr-2" for="email">Correo</label>
+<input type="email" class="form-control" placeholder="gsegura@itcr.com" name="email" [(ngModel)]="settings.email">
+
+
+<label class="my-1 mr-2" for="dat1">Fecha1</label>
+<input type="text" class="form-control" placeholder="0" name="date1" [(ngModel)]="settings.date1">
+
+<label class="my-1 mr-2" for="date2">Fecha2</label>
+<input type="text" class="form-control" placeholder="0" name="date2" [(ngModel)]="settings.date2">
+
+
 </form>
 
+<div class="" id="status">
+  <div class="card card-body">
+Presupuesto
+<button type="submit" class="btn btn-primary my-1"  (click)="onCreateBudgetReport()"  >Reporte presupuesto</button>
 
   </div>
-
 </div>
-
-
-<div class="collapse" id="payroll">
+<div class="" id="status">
   <div class="card card-body">
 Planilla
-
-
-    <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fecha 1</label>
-  <!-- <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig"></dp-date-picker> -->
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fecha 2</label>
-  <!-- <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig"></dp-date-picker> -->
-  <button type="submit" class="btn btn-primary my-1">Submit</button>
-</form>
-
+<button type="submit" class="btn btn-primary my-1"  (click)="onCreatePlanillaReport()"  >Reporte panilla</button>
 
   </div>
 </div>
 
 
-<div class="collapse" id="expenses">
+<div class="" id="status">
   <div class="card card-body">
-
 Gastos
-
-    <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Proyecto</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fecha 1</label>
-<!-- <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig"></dp-date-picker> -->
-<label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fecha 2</label>
-<!-- <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig"></dp-date-picker> -->
-  <button type="submit" class="btn btn-primary my-1">Submit</button>
-</form>
-
+<button type="submit" class="btn btn-primary my-1"  (click)="onCreateGastosReport()"  >Reporte gastos</button>
 
   </div>
 </div>
 
 
-<div class="collapse" id="status">
+<div class="" id="status">
   <div class="card card-body">
-
 Estado
-
-
-    <form class="form-inline">
-    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Proyecto</label>
-    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    </select>
-    <button type="submit" class="btn btn-primary my-1">Submit</button>
-    </form>
-
+<button type="submit" class="btn btn-primary my-1"  (click)="onCreateStatusReport()"  >Reporte estado</button>
 
   </div>
 </div>

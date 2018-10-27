@@ -12,14 +12,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let employee of employee_list">
-      <th scope="row">{{employee.ssn}}</th>
-      <td>{{employee.fname}}</td>
-      <td>{{employee.lname1}}</td>
-      <td>{{employee.lname2}}</td>
-      <td>{{employee.id_rol}}</td>
-      <td>{{employee.carrer}}</td>
+      <th scope="row">{{employee.identification}}</th>
+      <td>{{employee.name}}</td>
+      <td>{{employee.lastname1}}</td>
+      <td>{{employee.lastname2}}</td>
+      <!-- <td>{{employee.id_rol}}</td> -->
+      <!-- <td>{{employee.carrer}}</td> -->
       <td>{{employee.phone}}</td>
-      <td>{{employee.payperhour}}</td>
+      <td>{{employee.hour_cost}}</td>
       <td><button type="submit" class="btn btn-success" (click)="show_edit_employee(employee.id)" >Editar</button></td>
       <td><button type="submit" class="btn " (click)="delete_employee(employee.id)" >Eliminar</button></td>
     </tr>
