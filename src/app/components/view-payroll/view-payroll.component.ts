@@ -22,8 +22,72 @@ export class ViewPayrollComponent implements OnInit {
 
   constructor(private employeesService: EmployeesService, private projectsService: ProjectsService, private payrollsService: PayrollsService) {
     this.test1="";
-    this.header_list=["Proyecto", "Empleado","Fecha", "Horas","Opciones"];
+    this.header_list=["Proyecto", "Empleado","Horas", "Fecha","Opciones"];
     this.payroll_to_add=new Payroll(0, 0,0,0, new Date);
+    this.updateData();
+
+
+
+
+
+   }
+
+  ngOnInit() {
+  }
+
+  onSubmitAdd(){
+    // this.payroll_to_add.id = this.payroll_list.length;
+    console.log(this.payroll_to_add);
+    // this.payroll_list.push(this.payroll_to_add);
+    this.payrollsService.createPayroll(this.payroll_to_add).subscribe(
+          data => {
+              console.log("POST Request is successful ", data);
+              this.payroll_to_add=new Payroll(0, 0,0,0, new Date);
+              this.updateData();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
+    // console.log(this.test1);
+  }
+  getEmployeeName(id:number){
+    for(let employee of this.employee_list){
+      if(id == employee.id){
+        return employee.name;
+      }
+    }
+  }
+
+  getProjectName(id:number){
+    for(let project of this.project_list){
+      if(id == project.id){
+        return project.name;
+
+      }
+    }
+  }
+
+  delete_payroll(id:number) {
+    console.log("delete", id);
+    this.payrollsService.deletePayroll(id).subscribe(
+          data => {
+              console.log("DELETE payroll is successful ", data);
+              this.updateData();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
+  }
+
+  updateData(){
+    console.log("updateClientList");
+    this.payrollsService.getPayrolls().subscribe(data => {
+      console.log("data:", data);
+      this.payroll_list = data;
+    });
+
     this.employeesService.getEmployees().subscribe(data => {
       console.log("data:", data);
       this.employee_list = data;
@@ -34,50 +98,7 @@ export class ViewPayrollComponent implements OnInit {
       this.project_list = data;
     });
 
-    this.payrollsService.getPayrolls().subscribe(data => {
-      console.log("data:", data);
-      this.payroll_list = data;
-    });
 
-   }
-
-  ngOnInit() {
   }
-
-  onSubmitAdd(){
-    this.payroll_to_add.id = this.payroll_list.length;
-    console.log(this.payroll_to_add);
-    this.payroll_list.push(this.payroll_to_add);
-    this.payroll_to_add=new Payroll(0, 0,0,0, new Date);
-    // console.log(this.test1);
-  }
-  getEmployeeName(id:number){
-    for(let employee of this.employee_list){
-      if(id == employee.id){
-        return employee.fname;
-
-      }
-    }
-  }
-  getProjectName(id:number){
-    for(let project of this.project_list){
-      if(id == project.id){
-        return project.name;
-
-      }
-    }
-  }
-  delete_payroll(id:number) {
-    console.log("delete", id);
-
-    for (let i = 0; i < this.payroll_list.length; i++) {
-      if (this.payroll_list[i].id == id) {
-        console.log(this.payroll_list[i]);
-        this.payroll_list.splice(i, 1);
-        break;
-      }
-    }
-  }
-
 
 }
