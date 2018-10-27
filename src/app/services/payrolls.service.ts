@@ -10,7 +10,7 @@ export class PayrollsService {
 
   baseurl:string;
   constructor(private httpClient:HttpClient) {
-    this.baseurl = environment.apiUrl+"payroll/";
+    this.baseurl = environment.apiUrl+"worked_hours/";
     console.log("PayrollsService works");
   }
   getPayrolls(){
