@@ -12,8 +12,8 @@ export class ViewProjectComponent implements OnInit {
   project_to_add: Project;
   constructor() {
     this.add_project = false;
-    this.project_to_add = new Project(1, "","","","","","");
-    this.project = new Project(0, "La Mau Casa","Cartago","Nano", "Ing. Gustavo","26/10/2018","27/10/2018")
+    this.project_to_add = new Project(1, "","","","","","",0,0,[],[]);
+    this.project = new Project(0, "La Mau Casa","Cartago","Nano", "Ing. Gustavo","26/10/2018","27/10/2018",0,0,[],[])
   }
 
   ngOnInit() {
