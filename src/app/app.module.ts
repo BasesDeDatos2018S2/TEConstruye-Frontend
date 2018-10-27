@@ -23,6 +23,7 @@ import { ViewProjectsComponent } from './components/view-projects/view-projects.
 import { ViewClientsComponent } from './components/view-clients/view-clients.component';
 import { ViewReportsComponent } from './components/view-reports/view-reports.component';
 import { PayrollsService } from './services/payrolls.service';
+import { ViewProjectComponent } from './components/view-project/view-project.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 import { Observable } from 'rxjs';
@@ -41,7 +42,8 @@ import { Observable } from 'rxjs';
     ViewProjectsComponent,
     ViewClientsComponent,
     ViewReportsComponent,
-    ViewPayrollComponent
+    ViewPayrollComponent,
+    ViewProjectComponent
   ],
   imports: [
     BrowserModule,
