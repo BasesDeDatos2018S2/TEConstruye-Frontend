@@ -16,8 +16,8 @@ export class ProjectsService {
   getProjects(){
     return this.httpClient.get<Project[]>(this.baseurl);
   }
-  getProject(id:string){
-    return this.httpClient.get<Project[]>(this.baseurl+id);
+  getProject(id:number){
+    return this.httpClient.get<Project>(this.baseurl+id);
   }
   updateProject(project:Project){
     return this.httpClient.put(this.baseurl+"update/", project);
@@ -27,7 +27,7 @@ export class ProjectsService {
     return this.httpClient.post(this.baseurl+"add/", project);
   }
 
-  deleteProject(id:string){
+  deleteProject(id:number){
     return this.httpClient.delete(this.baseurl+"delete/"+id);
   }
 

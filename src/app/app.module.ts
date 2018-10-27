@@ -35,6 +35,7 @@ const routes:Route[] = [
   {path:'login', component:LoginComponent},
   {path:'clients', component:ViewClientsComponent},
   {path:'projects', component:ViewProjectsComponent},
+  {path:'project', component:ViewProjectComponent, data: { animation: 'project' }},
   {path:'materials', component:ViewMaterialsComponent},
   {path:'payroll', component:ViewPayrollComponent},
   {path:'reports', component:ViewReportsComponent},

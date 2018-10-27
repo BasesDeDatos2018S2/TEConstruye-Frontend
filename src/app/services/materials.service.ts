@@ -17,7 +17,7 @@ export class MaterialsService {
     return this.httpClient.get<Material[]>(this.baseurl);
   }
   getMaterial(id:string){
-    return this.httpClient.get<Material[]>(this.baseurl+id);
+    return this.httpClient.get<Material>(this.baseurl+id);
   }
   updateMaterial(material:Material){
     return this.httpClient.put(this.baseurl+"update/", material);
