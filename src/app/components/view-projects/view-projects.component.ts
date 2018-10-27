@@ -16,13 +16,13 @@ export class ViewProjectsComponent implements OnInit {
   constructor() {
     this.add_project = false;
     this.edit_project = false;
-    this.project_to_add = new Project(1, "","","","","","");
-    this.project_to_edit = new Project(1, "","","","","","");
-    this.header_list = [ "Nombre","Encargado","Ubicación", "Cliente", "",""];
-    this.project_list.push(new Project(0, "Casa","Ingeniero Mauricio","Cartago", "Gustavo","",""));
-    this.project_list.push(new Project(1, "Jardin","Arquitecto Gustavo","San José","Juan","",""));
-    this.project_list.push(new Project(2, "Edificio","Ingeniero Andrés","Heredia","Ramón","",""));
-    this.project_list.push(new Project(3, "Foro","Arquitecto Crisptofer","México","Mariluz","",""));
+    this.project_to_add = new Project(1, "","","","","","",0,0,[],[]);
+    this.project_to_edit = new Project(1, "","","","","","",0,0,[],[]);
+    this.header_list = [ "Nombre", "Cliente","Encargado","Ubicación", "",""];
+    this.project_list.push(new Project(0, "Casa","Ingeniero Mauricio","Cartago", "Gustavo","","",0,0,[],[]));
+    this.project_list.push(new Project(1, "Jardin","Arquitecto Gustavo","San José","Juan","","",0,0,[],[]));
+    this.project_list.push(new Project(2, "Edificio","Ingeniero Andrés","Heredia","Ramón","","",0,0,[],[]));
+    this.project_list.push(new Project(3, "Foro","Arquitecto Crisptofer","México","Mariluz","","",0,0,[],[]));
     console.log(this.project_list);
   }
 

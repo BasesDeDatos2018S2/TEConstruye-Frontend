@@ -14,8 +14,8 @@
   <tbody>
     <tr *ngFor="let project of project_list">
       <td>{{project.name}}</td>
-      <td>{{project.id_manager}}</td>
-      <td>{{project.location}}</td>
+      <td>{{project.manager}}</td>
+      <td>{{project.ubication}}</td>
       <td>{{project.id_client}}</td>
       <td><button type="submit" class="btn btn-success" (click)="show_see_project(project.id)" >Ver</button></td>
       <td><button type="submit" class="btn btn-danger " (click)="delete_project(project.id)" >Eliminar</button></td>
