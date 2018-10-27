@@ -29,8 +29,8 @@ export class ViewProjectsComponent implements OnInit {
     this.client_list=[]
     this.add_project = false;
     this.edit_project = false;
-    this.project_to_add = new Project(1, "","","","",);
-    this.project_to_edit = new Project(1, "","","","",);
+    this.project_to_add = new Project(1, "","","","",0,0,[],[]);
+    this.project_to_edit = new Project(1, "","","","",0,0,[],[]);
     this.header_list = [ "Nombre","Encargado","Ubicación", "Cliente", "Presupuesto","Costo actual","Opciones"];
     this.updateData();
     // this.project_list.push(new Project(0, "Casa","Ingeniero Mauricio","Cartago", "Gustavo","",""));
@@ -49,7 +49,7 @@ export class ViewProjectsComponent implements OnInit {
     this.projectsService.createProject(this.project_to_add).subscribe(
           data => {
               console.log("POST Request is successful ", data);
-              this.project_to_add=new Project(1, "","","","");
+              this.project_to_add=new Project(1, "","","","",0,0,[],[]);
               this.updateData();
           },
           error => {
