@@ -24,20 +24,11 @@ export class ViewPayrollComponent implements OnInit {
     this.test1="";
     this.header_list=["Proyecto", "Empleado","Horas", "Fecha","Opciones"];
     this.payroll_to_add=new Payroll(0, 0,0,0, new Date);
-    this.employeesService.getEmployees().subscribe(data => {
-      console.log("data:", data);
-      this.employee_list = data;
-    });
+    this.updateData();
 
-    this.projectsService.getProjects().subscribe(data => {
-      console.log("data:", data);
-      this.project_list = data;
-    });
 
-    this.payrollsService.getPayrolls().subscribe(data => {
-      console.log("data:", data);
-      this.payroll_list = data;
-    });
+
+
 
    }
 
@@ -52,7 +43,7 @@ export class ViewPayrollComponent implements OnInit {
           data => {
               console.log("POST Request is successful ", data);
               this.payroll_to_add=new Payroll(0, 0,0,0, new Date);
-              this.updatePayrollList();
+              this.updateData();
           },
           error => {
               console.log("Error", error);
@@ -82,7 +73,7 @@ export class ViewPayrollComponent implements OnInit {
     this.payrollsService.deletePayroll(id).subscribe(
           data => {
               console.log("DELETE payroll is successful ", data);
-              this.updatePayrollList();
+              this.updateData();
           },
           error => {
               console.log("Error", error);
@@ -90,12 +81,24 @@ export class ViewPayrollComponent implements OnInit {
       );
   }
 
-  updatePayrollList(){
+  updateData(){
     console.log("updateClientList");
     this.payrollsService.getPayrolls().subscribe(data => {
       console.log("data:", data);
       this.payroll_list = data;
     });
+
+    this.employeesService.getEmployees().subscribe(data => {
+      console.log("data:", data);
+      this.employee_list = data;
+    });
+
+    this.projectsService.getProjects().subscribe(data => {
+      console.log("data:", data);
+      this.project_list = data;
+    });
+
+
   }
 
 }
