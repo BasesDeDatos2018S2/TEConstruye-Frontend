@@ -17,7 +17,7 @@ export class ProjectsService {
     return this.httpClient.get<Project[]>(this.baseurl);
   }
   getProject(id:number){
-    return this.httpClient.get<Project[]>(this.baseurl+id);
+    return this.httpClient.get<Project>(this.baseurl+id);
   }
   updateProject(project:Project){
     return this.httpClient.put(this.baseurl+"update/", project);

@@ -5,6 +5,7 @@ import { Client } from '../../classes/client';
 import { EmployeesService } from '../../services/employees.service';
 import { ProjectsService } from '../../services/projects.service';
 import { ClientsService } from '../../services/clients.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-view-projects',
@@ -21,7 +22,8 @@ export class ViewProjectsComponent implements OnInit {
   employee_list:Employee[];
   client_list:Client[];
 
-  constructor(private employeesService: EmployeesService, private projectsService: ProjectsService, private clientsService: ClientsService) {
+  constructor(private employeesService: EmployeesService, private projectsService: ProjectsService, private clientsService: ClientsService, private route: ActivatedRoute, private router: Router) {
+
     this.employee_list=[]
     this.project_list=[]
     this.client_list=[]
@@ -39,6 +41,7 @@ export class ViewProjectsComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
   onSubmitAdd() {
     console.log("Project",this.project_to_add);
@@ -140,5 +143,10 @@ export class ViewProjectsComponent implements OnInit {
         return client.name + " "+client.lastname1;
       }
     }
+  }
+
+
+  goToProject(id:number) {
+    this.router.navigate(['/project', { id: id} ]);
   }
 }

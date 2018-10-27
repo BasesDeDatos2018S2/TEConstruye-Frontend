@@ -19,7 +19,7 @@
         <td>{{project.id_client}}</td>
         <td>{{project.totalBudget}}</td>
         <td>{{project.totalCost}}</td>
-        <td><button type="submit" class="btn btn-success" (click)="show_see_project(project.id)">Ver</button>
+        <td><button type="submit" class="btn btn-success" (click)="goToProject(project.id)">Ver</button>
         <button type="submit" class="btn btn-danger " (click)="deleteProject(project.id)">Eliminar</button></td>
       </tr>
     </tbody>
