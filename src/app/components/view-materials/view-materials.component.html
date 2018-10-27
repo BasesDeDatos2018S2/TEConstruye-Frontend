@@ -1,3 +1,4 @@
+<button type="submit" class="btn btn-success" (click)="updateMaterialList()" >Update</button>
 
 <div *ngIf="!add_material && !edit_material">
 
@@ -28,7 +29,7 @@
 
 
 <div class="container" *ngIf="add_material">
-<h1>Inicio de session</h1>
+<h1>Agregar material</h1>
   <form (ngSubmit)="onSubmitAdd()" #addMaterialForm="ngForm">
 
     <div class="form-group">

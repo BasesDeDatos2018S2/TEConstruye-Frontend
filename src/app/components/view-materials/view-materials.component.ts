@@ -17,11 +17,6 @@ export class ViewMaterialsComponent implements OnInit {
   material_to_edit: Material;
   header_list: string[] = [];
   constructor(private materialsService: MaterialsService) {
-
-
-
-
-
     this.add_material = false;
     this.edit_material = false;
     this.material_to_add = new Material(1, "", "", 0);
@@ -42,6 +37,7 @@ export class ViewMaterialsComponent implements OnInit {
     this.material_list.push(this.material_to_add);
     this.add_material = false;
   }
+
   onSubmitEdit() {
     for (let material of this.material_list) {
       if (material.id === this.material_to_edit.id) {
@@ -65,15 +61,31 @@ export class ViewMaterialsComponent implements OnInit {
       }
     }
   }
+
+
   delete_material(id) {
     console.log("delete", id);
+    this.materialsService.deleteMaterial(id).subscribe(
+          data => {
+              console.log("DELETE Request is successful ", data);
+              this.updateMaterialList();
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
 
-    for (let i = 0; i < this.material_list.length; i++) {
-      if (this.material_list[i].id == id) {
-        console.log(this.material_list[i]);
-        this.material_list.splice(i, 1);
-        break;
-      }
-    }
+
+
+
+  }
+
+
+  updateMaterialList(){
+    console.log("updateMaterialList");
+    this.materialsService.getMaterials().subscribe(data => {
+      console.log("data:", data);
+      this.material_list = data;
+    });
   }
 }
