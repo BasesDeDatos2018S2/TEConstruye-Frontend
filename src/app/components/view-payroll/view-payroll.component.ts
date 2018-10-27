@@ -22,6 +22,7 @@ export class ViewPayrollComponent implements OnInit {
 
   constructor(private employeesService: EmployeesService, private projectsService: ProjectsService, private payrollsService: PayrollsService) {
     this.test1="";
+    this.employee_list=[]
     this.header_list=["Proyecto", "Empleado","Horas", "Fecha","Opciones"];
     this.payroll_to_add=new Payroll(0, 0,0,0, new Date);
     this.updateData();
@@ -54,7 +55,7 @@ export class ViewPayrollComponent implements OnInit {
   getEmployeeName(id:number){
     for(let employee of this.employee_list){
       if(id == employee.id){
-        return employee.name;
+        return employee.name + " "+employee.lastname1;
       }
     }
   }

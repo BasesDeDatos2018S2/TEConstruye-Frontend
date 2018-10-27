@@ -2,68 +2,67 @@
 <div *ngIf="!add_project && !see_project">
 
 
-<table class="table table-hover table-bordered results">
-  <thead class="thead-dark">
-    <tr>
-      <th *ngFor=" let header of header_list" scope="col">{{header}} </th>
-    </tr>
-    <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let project of project_list">
-      <td>{{project.name}}</td>
-      <td>{{project.id_manager}}</td>
-      <td>{{project.location}}</td>
-      <td>{{project.id_client}}</td>
-      <td><button type="submit" class="btn btn-success" (click)="show_see_project(project.id)" >Ver</button></td>
-      <td><button type="submit" class="btn btn-danger " (click)="delete_project(project.id)" >Eliminar</button></td>
-    </tr>
-  </tbody>
-</table>
-<button type="submit" class="btn btn-success" (click)="add_project=true" >Agregar proyecto</button>
+  <table class="table table-hover table-bordered results">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor=" let header of header_list" scope="col">{{header}} </th>
+      </tr>
+      <tr class="warning no-result">
+        <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of project_list">
+        <td>{{project.name}}</td>
+        <td>{{getEmployeeName(project.manager) }}</td>
+        <td>{{project.ubication}}</td>
+        <td>{{project.id_client}}</td>
+        <td><button type="submit" class="btn btn-success" (click)="show_see_project(project.id)">Ver</button></td>
+        <td><button type="submit" class="btn btn-danger " (click)="deleteProject(project.id)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-success" (click)="add_project=true">Agregar proyecto</button>
 
 </div>
 
 
 <div class="container" *ngIf="add_project">
-<h1>Agregar Proyecto</h1>
+  <h1>Agregar Proyecto</h1>
   <form (ngSubmit)="onSubmitAdd()" #addProjectForm="ngForm">
 
     <div class="form-group">
       <label for="name">Nombre</label>
-      <input type="text" class="form-control" id="name"
-             required
-             [(ngModel)]="project_to_add.name" name="name"
-             #name="ngModel" placeholder="Ventanas, Cuartos, Castillo">
+      <input type="text" class="form-control" id="name" required [(ngModel)]="project_to_add.name" name="name" #name="ngModel" placeholder="Ventanas, Cuartos, Castillo">
 
-      <div [hidden]="name.valid || name.pristine"
-           class="alert alert-danger">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
         EL nombre es requerido
       </div>
     </div>
 
     <div class="form-group">
       <label for="manager">Encargado</label>
-      <input type="text" class="form-control" id="manager"
+      <!-- <input type="text" class="form-control" id="manager"
              [(ngModel)]="project_to_add.id_manager" name="location"
-             placeholder="Ingeniero Solis, Arquitecto Miranda, Ingeniero Rodriguez">
+             placeholder="Ingeniero Solis, Arquitecto Miranda, Ingeniero Rodriguez"> -->
+      <select class="custom-select my-1 mr-sm-2" [(ngModel)]="project_to_add.manager" name="managerID">
+        <option *ngFor=" let employee of employee_list" [value]="employee.id">{{employee.name + " " +employee.lastname1 + " " + employee.lastname2 }}</option>
+      </select>
     </div>
+
+
 
     <div class="form-group">
       <label for="location">Ubicación</label>
-      <input type="text" class="form-control" id="location"
-             [(ngModel)]="project_to_add.location" name="location"
-             placeholder="Panamá, Colombia, Puntarenas">
+      <input type="text" class="form-control" id="ubication" [(ngModel)]="project_to_add.ubication" name="location" placeholder="Panamá, Colombia, Puntarenas">
     </div>
 
     <div class="form-group">
       <label for="client">Cliente</label>
-      <input type="text" class="form-control" id="client"
-             [(ngModel)]="project_to_add.id_client" name="client"
-             placeholder="Andrés, Luis, Crisptofer">
-
+      <!-- <input type="text" class="form-control" id="client" [(ngModel)]="project_to_add.id_client" name="client" placeholder="Andrés, Luis, Crisptofer"> -->
+      <select class="custom-select my-1 mr-sm-2" [(ngModel)]="project_to_add.id_client" name="clientID">
+        <option *ngFor=" let client of client_list" [value]="client.identification">{{client.name + " " +client.lastname1 + " " + client.lastname2 }}</option>
+      </select>
     </div>
 
 
@@ -73,7 +72,7 @@
 
 
 <div class="container" *ngIf="see_project">
-<h1>Información del Proyecto</h1>
+  <h1>Información del Proyecto</h1>
   <form (ngSubmit)="onSubmitEdit()" #seeProjectForm="ngForm">
 
   </form>
