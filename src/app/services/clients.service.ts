@@ -8,7 +8,7 @@ import { Client } from '../classes/client';
 export class ClientsService {
     baseurl:string;
     constructor(private httpClient:HttpClient) {
-      this.baseurl = "http://172.18.95.165:8088/api/client/";
+      this.baseurl = "http://192.168.100.13:8091/api/client/";
       console.log("ClientService works");
     }
     getClients(){

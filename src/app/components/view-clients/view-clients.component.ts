@@ -18,16 +18,12 @@ export class ViewClientsComponent implements OnInit {
 
     this.add_client = false;
     this.edit_client = false;
-    this.client_to_add = new Client("","","","","","");
-    this.client_to_edit = new Client( "","","","","","");
+    this.client_to_add = new Client("","","","","","",[]);
+    this.client_to_edit = new Client( "","","","","","",[]);
 
     this.header_list = [ "Cédula","Nombre","Primer Apellido","Segundo Apellido", "Correo", "Teléfono","",""];
 
     this.updateClientList();
-    // this.client_list.push(new Client(0,"604410064", "Nano","Ramírez","Miranda", "nano_12_rm@hotmail.com","83186440"));
-    //this.client_list.push(new Client(1, "Jardin","Arquitecto Gustavo","San José","Juan"));
-    //this.client_list.push(new Client(2, "Edificio","Ingeniero Andrés","Heredia","Ramón"));
-    //this.client_list.push(new Client(3, "Foro","Arquitecto Crisptofer","México","Mariluz"));
     console.log(this.client_list);
   }
 
@@ -100,6 +96,7 @@ export class ViewClientsComponent implements OnInit {
   }
 
   updateClientList(){
+    console.log("updateClientList");
     this.clientService.getClients().subscribe(data => {
       console.log("data:", data);
       this.client_list = data;
