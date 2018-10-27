@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Employee } from '../classes/employee';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +10,7 @@ export class EmployeesService {
 
   baseurl:string;
   constructor(private httpClient:HttpClient) {
-    this.baseurl = "http://172.18.95.165:8088/api/employee/";
+    this.baseurl = environment.apiUrl+"employee/";
     console.log("EmployeeService works");
   }
   getEmployees(){

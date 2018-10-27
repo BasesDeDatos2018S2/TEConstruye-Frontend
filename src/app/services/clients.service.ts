@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Client } from '../classes/client';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ClientsService {
     baseurl:string;
     constructor(private httpClient:HttpClient) {
-      this.baseurl = "http://192.168.100.13:8091/api/client/";
+      this.baseurl = environment.apiUrl+"client/";
       console.log("ClientService works");
     }
     getClients(){
