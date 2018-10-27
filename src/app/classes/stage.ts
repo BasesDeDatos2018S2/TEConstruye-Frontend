@@ -6,12 +6,12 @@ export class Stage {
     public id_project: number,
     public name: string,
     public description: string,
-    public state: boolean,
+    public status: boolean,
     public start_date: Date,
-    public due_date: Date,
+    public end_date: Date,
     public materials:Material[],
     public invoices:Invoice[],
-    public estimated_cost:number,
-    public current_cost:number
+    public totalBudget:number,
+    public totalCost:number
   ) { }
 }

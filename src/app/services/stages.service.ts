@@ -15,7 +15,7 @@ export class StagesService {
   getStages(){
     return this.httpClient.get<Stage[]>(this.baseurl);
   }
-  getStage(id:string){
+  getStage(id:number){
     return this.httpClient.get<Stage>(this.baseurl+id);
   }
   updateStage(stage:Stage){
@@ -26,7 +26,7 @@ export class StagesService {
     return this.httpClient.post(this.baseurl+"add/", stage);
   }
 
-  deleteStage(id:string){
+  deleteStage(id:number){
     return this.httpClient.delete(this.baseurl+"delete/"+id);
   }
 

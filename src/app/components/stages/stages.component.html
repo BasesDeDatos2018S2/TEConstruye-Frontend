@@ -18,9 +18,11 @@
       <!-- <th scope="row">{{material.id}}</th> -->
       <th scope="row">{{stage.name}}</th>
       <td>{{stage.description}}</td>
-      <td>{{stage.state}}</td>
-      <td>{{stage.estimated_cost}}</td>
-      <td>{{stage.current_cost}}</td>
+      <td>{{stage.status}}</td>
+      <td>{{stage.totalBudget}}</td>
+      <td>{{stage.totalCost}}</td>
+      <td>{{stage.start_date}}</td>
+      <td>{{stage.end_date}}</td>
       <td>
         <button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Ver</button>
       <!-- <td><button type="submit" class="btn btn-success" (click)="show_edit_material(material.id)" >Mostrar Facturas</button></td> -->
